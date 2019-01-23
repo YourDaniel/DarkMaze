@@ -1,0 +1,10 @@
+◊ diamond
+╘ key
+█ wall
+. floor
+║ door_v
+═ door_h
+▴ arrow_up
+▾ arrow_down
+◂ arrow_left
+▸ arrow_right
