@@ -1,13 +1,17 @@
 import os
 from readchar import readkey
 
+levels = (1, 2) #sets the number of levels
 level = []
 floor_tile = '.'
 wall_tile = '█'
+stairs_down = '▼'
+pressure_plate = '□'
 door_v = '║'
 hero = '@'
 key = '╘'
 keys_count = 0
+level_passed = False
 
 
 def clear():
@@ -15,6 +19,8 @@ def clear():
 
 
 def load_level(file_name):
+    global level
+    level = []
     with open(file_name, encoding='UTF-8-sig') as f:
         data = f.read()
     line = []
@@ -69,6 +75,12 @@ def wall_collision(x, y):
 
 def move(x, y, old_pos):
     if not wall_collision(x, y):
+        if level[x][y] == stairs_down:
+            global level_passed
+            level_passed = True
+        if level[x][y] == pressure_plate:
+            #TODO: Redo this hardcode
+            level[2][4] = floor_tile
         if level[x][y] == key:
             global keys_count
             keys_count += 1
@@ -81,21 +93,30 @@ def move(x, y, old_pos):
         return old_pos
 
 
+def input_handler(pos):
+    key_pressed = readkey()
+    if key_pressed == 'w':
+        pos = move(pos[0] - 1, pos[1], pos)
+    elif key_pressed == 'a':
+        pos = move(pos[0], pos[1] - 1, pos)
+    elif key_pressed == 's':
+        pos = move(pos[0] + 1, pos[1], pos)
+    elif key_pressed == 'd':
+        pos = move(pos[0], pos[1] + 1, pos)
+    return pos
+
+
 def main():
-    load_level('level_1.txt')
-    hero_pos = find_hero()
-    draw_level()
-    print('Find a way downstairs! ▼')
-    while True:
-        key_pressed = readkey()
-        if key_pressed == 'w':
-            hero_pos = move(hero_pos[0] - 1, hero_pos[1], hero_pos)
-        elif key_pressed == 'a':
-            hero_pos = move(hero_pos[0], hero_pos[1] - 1, hero_pos)
-        elif key_pressed == 's':
-            hero_pos = move(hero_pos[0] + 1, hero_pos[1], hero_pos)
-        elif key_pressed == 'd':
-            hero_pos = move(hero_pos[0], hero_pos[1] + 1, hero_pos)
+    for current_level in levels:
+        load_level(f'level_{str(current_level)}.txt')
+        hero_pos = find_hero()
+        draw_level()
+        print('Find a way downstairs! ▼')
+        global level_passed
+        while not level_passed:
+            hero_pos = input_handler(hero_pos)
+        level_passed = False
+    print('Congratulations! You have won!')
 
 
 if __name__ == '__main__':

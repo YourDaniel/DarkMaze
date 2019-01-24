@@ -1,4 +1,4 @@
-◊ diamond
+﻿◊ diamond
 ╘ key
 █ wall
 . floor
