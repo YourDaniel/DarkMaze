@@ -1,7 +1,7 @@
 import os
 from readchar import readkey
 
-levels = (1, 2) #sets the number of levels
+levels = (1, 2, 3) #sets the order of levels
 level = []
 floor_tile = '.'
 wall_tile = '█'
@@ -116,7 +116,7 @@ def main():
         while not level_passed:
             hero_pos = input_handler(hero_pos)
         level_passed = False
-    print('Congratulations! You have won!')
+    print('You can rest now, hero...')
 
 
 if __name__ == '__main__':
