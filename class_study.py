@@ -1,35 +1,34 @@
-class Employe:
 
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
-        self.salary = 10000
-    
-    company = 'Google'
-  
-    def add_salary(self, quantity):
-        self.salary += quantity
+class TileObject:
+    def __init__(self, x_position, y_position):
+        self.x_pos = x_position
+        self.y_pos = y_position
+        self.items_on = []
 
 
-a = Employe('Bobby', 'Brown')
-b = Employe('James', 'Show')
-employees = []
+class Wall(TileObject):
+    name = 'Wall'
+
+    def __init__(self, x, y):
+        self.destroyable = True
+        self.can_walk_on = True
+        self.obtainable = False
+        super(Wall, self).__init__(x, y)
 
 
-def add_emp(emp):
-    employees.append(emp)
+class Floor(TileObject):
+    name = 'Floor'
+
+    def __init__(self, x, y):
+        self.destroyable = False
+        self.can_walk_on = False
+        self.obtainable = False
+        super(Floor, self).__init__(x, y)
 
 
-add_emp(a)
-add_emp(b)
-
-for guy in employees:
-    print(guy.name, guy.surname, guy.company, guy.salary)
-
-b.add_salary(500)
-print(b.salary)
-print(a.salary)
-
-#print(a.name, a.surname, 'works at', a.company, 'with a salary of',a.salary)
-#print(a.company)
-#print(Employe.company)
+tiles = []
+tiles.append(Floor(0, 1))
+tiles.append(Wall(1, 1))
+for tile in tiles:
+    print(tile.name)
+    print(tile.destroyable)
