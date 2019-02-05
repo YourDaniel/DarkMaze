@@ -17,3 +17,7 @@
 ◂ arrow_left
 
 ▸ arrow_right
+
+□ pressure_plate
+
+▼ stairs_down

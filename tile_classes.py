@@ -28,7 +28,7 @@ class TileObject:
         self.objects_on.append(item_object)
 
     def delete_object(self, item_object):
-        self.objects_on.remove(item_object.name)
+        self.objects_on.remove(item_object)
 
 
 class Wall(TileObject):
@@ -38,8 +38,9 @@ class Wall(TileObject):
 
     def __init__(self, x, y):
         self.destroyable = True
-        self.can_walk_on = True
+        self.can_walk_on = False
         self.obtainable = False
+        self.description = 'A rough stone wall. It is dark and cold.'
         super(Wall, self).__init__(x, y)
 
 
@@ -50,8 +51,9 @@ class Floor(TileObject):
 
     def __init__(self, x, y):
         self.destroyable = False
-        self.can_walk_on = False
+        self.can_walk_on = True
         self.obtainable = False
+        self.description = 'A rough stone floor. It is dark and cold.'
         super(Floor, self).__init__(x, y)
 
 
@@ -92,4 +94,5 @@ class StairsDown(TileObject):
         self.destroyable = False
         self.can_walk_on = True
         self.obtainable = False
+        self.description = 'Steps leading down to the darkness. You feel a cold air blowing from there.'
         super(StairsDown, self).__init__(x, y)
