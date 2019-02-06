@@ -204,8 +204,12 @@ def draw_level():
             else:
                 print(lvl[i][j].tile_char, end='')
         print()
+    draw_ui()
+
+
+def draw_ui():
     inv.draw()
-    print('-'*20)
+    print('-' * 20)
     log.draw()
 
 
@@ -224,7 +228,7 @@ def input_handler():
     elif key_pressed == 'g':
         objects_below = game_state.level[hero.x_pos][hero.y_pos].objects_on
         if len(objects_below) > 1:
-            inv.add_item(objects_below[-2])  # -2 to exclude hero itself
+            inv.add_item(objects_below[-2])  # -2 to exclude hero itself because he's always standing at -1
             remove_object(objects_below[-2], hero.x_pos, hero.y_pos)
         else:
             log.add_msg('There are no items here.')
