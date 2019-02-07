@@ -42,6 +42,7 @@ class Log:
         self.log_len = log_len
 
     def draw(self):
+        # TODO: Add fading color to messages
         print(Fore.LIGHTBLUE_EX, end='')
         for i in range(len(self.messages)):
             msg_count = self.messages[i][1]
