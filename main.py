@@ -1,8 +1,6 @@
 import os
 from readchar import readkey
 import tile_classes
-import item_classes
-# from tile_classes import TileObject
 from item_classes import Key
 from item_classes import Diamond
 from item_classes import Ace
@@ -91,11 +89,9 @@ class Inventory:
                 print(self.content[i].name + '.')
 
     def item_inside(self, obj):
-        if any(isinstance(i, Key) for i in self.content):
-            #log.add_msg(f'Key found {self.content.count(obj)} {self.content}')
+        if any(isinstance(i, obj) for i in self.content):
             return True
         else:
-            #log.add_msg(f'Key not found {self.content.count(obj)} {self.content}')
             return False
 
 
@@ -160,18 +156,6 @@ class GameState:
     def __init__(self):
         self.letters_picked = []
         self.level = []
-    '''
-    def load_level(self, file_name):
-        self.level = []
-        with open(file_name, encoding='UTF-8-sig') as f:
-            data = f.read()
-        line = []
-        for char in data:
-            if char != '\n':
-                line.append(char)
-            else:
-                self.level.append(line)
-                line = []'''
 
     def load_level(self, file_name):
         self.level = []
@@ -190,49 +174,12 @@ class GameState:
                 y = 0
                 line = []
 
+
 # TODO: rework positioning in the file and remove classes from it
 game_state = GameState()
 log = Log(10)
 hero = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
 inv = Inventory()
-'''
-def find_hero():
-    for i in range(len(game_state.level)):
-        for j in range(len(game_state.level[i])):
-            if game_state.level[i][j] == hero:
-                pos = (i, j)
-                return pos
-    else:
-        print('Hero is not found on level!')
-def move(x, y, old_pos):
-    def wall_collision(x, y):
-        if game_state.level[x][y] == wall_tile:
-            return True
-        elif game_state.level[x][y] == door_v:
-            if game_state.keys < 1:
-                return True
-            else:
-                game_state.keys -= 1
-                return False
-        else:
-            return False
-    if not wall_collision(x, y):
-        if game_state.level[x][y] == stairs_down:
-            global level_passed
-            level_passed = True
-        if game_state.level[x][y] == pressure_plate:
-            #TODO: Redo this hardcode
-            game_state.level[2][4] = floor_tile
-        if game_state.level[x][y] == key:
-            game_state.keys += 1
-        game_state.level[old_pos[0]][old_pos[1]] = floor_tile
-        new_pos = place_hero(x, y)
-        draw_level()
-        return new_pos
-    else:
-        print("Can't move here")
-        return old_pos
-'''
 
 
 def draw_level():
