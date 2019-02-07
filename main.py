@@ -4,6 +4,12 @@ import tile_classes
 import item_classes
 # from tile_classes import TileObject
 from item_classes import Key
+from item_classes import Diamond
+from item_classes import Ace
+from colorama import init
+from colorama import deinit
+from colorama import Fore, Back, Style
+
 
 tile_set = {
     'floor':
@@ -21,7 +27,9 @@ tile_set = {
     'hero':
         dict(name='The Character', standard_tile='@', custom_tile='@'),
     'key':
-        dict(name='Key', standard_tile='╘', custom_tile='╘')
+        dict(name='Key', standard_tile='╘', custom_tile='╘'),
+    'chest':
+        dict(name='Chest', standard_tile='■', custom_tile='■')
 }
 
 
@@ -36,6 +44,7 @@ class Log:
         self.log_len = log_len
 
     def draw(self):
+        print(Fore.LIGHTBLUE_EX, end='')
         for i in range(len(self.messages)):
             msg_count = self.messages[i][1]
             msg_text = self.messages[i][0]
@@ -43,6 +52,7 @@ class Log:
                 print(f'{msg_text} x {msg_count}')
             else:
                 print(msg_text)
+        print(Style.RESET_ALL)
 
     def add_msg(self, msg):
         if len(self.messages) > 0:
@@ -64,6 +74,12 @@ class Inventory:
     def add_item(self, obj):
         self.content.append(obj)
 
+    def remove_item(self, obj_id):
+        for i in range(len(self.content)):
+            if self.content[i].id == obj_id:
+                del self.content[i]
+                break
+
     def draw(self):
         print('Inventory:')
         if len(self.content) == 0:
@@ -73,6 +89,14 @@ class Inventory:
                 print(self.content[i].name, end=', ')
             else:
                 print(self.content[i].name + '.')
+
+    def item_inside(self, obj):
+        if any(isinstance(i, Key) for i in self.content):
+            #log.add_msg(f'Key found {self.content.count(obj)} {self.content}')
+            return True
+        else:
+            #log.add_msg(f'Key not found {self.content.count(obj)} {self.content}')
+            return False
 
 
 def place_object(obj, x, y):
@@ -94,6 +118,8 @@ def create_tile(raw_tile, x, y):
         return tile_classes.Door(x, y, 0)
     elif raw_tile == tile_set['stairs_down']['standard_tile']:
         return tile_classes.StairsDown(x, y)
+    elif raw_tile == tile_set['chest']['standard_tile']:
+        return tile_classes.Chest(x, y)
 
 
 class Hero:
@@ -104,14 +130,30 @@ class Hero:
         self.y_pos = y_position
         self.name = name
 
+    def open(self, x, y):
+        if game_state.level[x][y].is_closed:
+            if inv.item_inside(Key):
+                game_state.level[x][y].open()
+                inv.remove_item(Key.id)
+                # TODO: rework this naming problem
+                log.add_msg(f'You opened a {game_state.level[x][y].name[:1].lower()}{game_state.level[x][y].name[1:]}.')
+            else:
+                log.add_msg(f'You need to find a key to open a {game_state.level[x][y].name[:1].lower()}{game_state.level[x][y].name[1:]}.')
+        else:
+            log.add_msg("You can't move here.")
+
     def move(self, x, y):
         if game_state.level[x][y].can_walk_on:
             place_object(self, x, y)
             remove_object(self, self.x_pos, self.y_pos)
             self.x_pos = x
             self.y_pos = y
+            return True
         else:
-            log.add_msg("Can't move here!")
+            try:
+                self.open(x, y)
+            except AttributeError:
+                log.add_msg("You can't move here.")
 
 
 class GameState:
@@ -148,7 +190,7 @@ class GameState:
                 y = 0
                 line = []
 
-
+# TODO: rework positioning in the file and remove classes from it
 game_state = GameState()
 log = Log(10)
 hero = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
@@ -200,7 +242,10 @@ def draw_level():
         for j in range(len(lvl[i])):
             # if there are any elements on a tile we draw them instead of an actual tile
             if len(lvl[i][j].objects_on) > 0:
-                print(lvl[i][j].objects_on[-1].tile_char, end='')
+                if lvl[i][j].objects_hidden:
+                    print(lvl[i][j].tile_char, end='')
+                else:
+                    print(lvl[i][j].objects_on[-1].tile_char, end='')
             else:
                 print(lvl[i][j].tile_char, end='')
         print()
@@ -208,9 +253,11 @@ def draw_level():
 
 
 def draw_ui():
+    print(Fore.LIGHTYELLOW_EX, end='')
     inv.draw()
     print('-' * 20)
     log.draw()
+    print(Style.RESET_ALL)
 
 
 def input_handler():
@@ -244,16 +291,21 @@ def input_handler():
 
 
 def main():
+    init()
     game_state.load_level('test_level.txt')
-    place_object(Key(), 3, 10)
-    place_object(Key(), 3, 13)
+    place_object(Key(), 2, 2)
+    place_object(Diamond(), 1, 4)
+    place_object(Ace(), 5, 14)
+    place_object(Key(), 2, 13)
+    place_object(Key(), 4, 14)
     place_object(hero, hero.x_pos, hero.y_pos)
     log.add_msg('Welcome to Dark Maze!')
-    log.add_msg('Find a way downstairs! ▼')
+    log.add_msg('Find a diamond! ◊')
     while True:
         draw_level()
         input_handler()
     log.add_msg('You can rest now, hero...')
+    deinit()
 
 
 if __name__ == '__main__':
