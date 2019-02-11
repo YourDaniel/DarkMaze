@@ -7,28 +7,7 @@ from item_classes import Ace
 from colorama import init
 from colorama import deinit
 from colorama import Fore, Back, Style
-
-
-tile_set = {
-    'floor':
-        dict(name='Floor tile', standard_tile='.', custom_tile='.'),
-    'wall':
-        dict(name='Wall tile', standard_tile='█', custom_tile='█'),
-    'stairs_down':
-        dict(name='Downward Staircase Tile', standard_tile='▼', custom_tile='▼'),
-    'pressure_plate':
-        dict(name='Pressure Plate Tile', standard_tile='□', custom_tile='□'),
-    'door_v':
-        dict(name='Vertical Door Tile', standard_tile='║', custom_tile='║'),
-    'door_h':
-        dict(name='Horizontal Door Tile', standard_tile='═', custom_tile='═'),
-    'hero':
-        dict(name='The Character', standard_tile='@', custom_tile='@'),
-    'key':
-        dict(name='Key', standard_tile='╘', custom_tile='╘'),
-    'chest':
-        dict(name='Chest', standard_tile='■', custom_tile='■')
-}
+from tileset import tile_set
 
 
 def clear():
@@ -182,20 +161,22 @@ log = Log(10)
 hero = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
 inv = Inventory()
 
-
+# TODO: rework drawing so just only changed tiles get reprinted in process
 def draw_level():
     clear()
     lvl = game_state.level
     for i in range(len(lvl)):
         for j in range(len(lvl[i])):
-            # if there are any elements on a tile we draw them instead of an actual tile
-            if len(lvl[i][j].objects_on) > 0:
-                if lvl[i][j].objects_hidden:
-                    print(lvl[i][j].tile_char, end='')
-                else:
+            # if there are any elements on a tile and they're not hidden we draw them instead of an actual tile
+            if len(lvl[i][j].objects_on) > 0 and not lvl[i][j].objects_hidden:
                     print(lvl[i][j].objects_on[-1].tile_char, end='')
             else:
+                if lvl[i][j].tile_char == '.':
+                    print(Fore.BLUE, end='')
+                if lvl[i][j].tile_char == '█':
+                    print(Fore.LIGHTBLUE_EX, end='')
                 print(lvl[i][j].tile_char, end='')
+                print(Style.RESET_ALL, end='')
         print()
     draw_ui()
 

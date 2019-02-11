@@ -1,25 +1,8 @@
-from tile_classes import TileObject
-# TODO: remove copies of tile_set and import it
-tile_set = {
-    'floor':
-        dict(name='Floor tile', standard_tile='.', custom_tile='.'),
-    'wall':
-        dict(name='Wall tile', standard_tile='█', custom_tile='█'),
-    'stairs_down':
-        dict(name='Downward Staircase Tile', standard_tile='▼', custom_tile='▼'),
-    'pressure_plate':
-        dict(name='Pressure Plate Tile', standard_tile='□', custom_tile='□'),
-    'door_v':
-        dict(name='Vertical Door Tile', standard_tile='║', custom_tile='║'),
-    'door_h':
-        dict(name='Horizontal Door Tile', standard_tile='═', custom_tile='═'),
-    'hero':
-        dict(name='The Character', standard_tile='@', custom_tile='@'),
-    'key':
-        dict(name='Key', standard_tile='╘', custom_tile='╘')
-}
-
+# from tile_classes import TileObject
+from tileset import tile_set
 # TODO: implement IDs. To distiguish different items
+
+
 class ItemObject:
 
     #def __init__(self, x_position, y_position):
@@ -36,11 +19,12 @@ class Key(ItemObject):
 
     '''def __init__(self, x, y):
         super(Key, self).__init__(x, y)'''
+
 class Diamond(ItemObject):
     id = 2
     name = 'Diamond'
     description = 'A beautiful diamond. It shines brightly in the dark.'
-    tile_char = '◊'
+    tile_char = tile_set["diamond"]["custom_tile"]
 
 class Ace(ItemObject):
     id = 3
