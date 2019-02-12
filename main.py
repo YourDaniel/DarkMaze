@@ -13,6 +13,9 @@ from tileset import tile_set
 def clear():
     os.system('cls')
 
+def set_color():
+    os.system('color f4')
+
 
 class Log:
     messages = []
@@ -22,7 +25,6 @@ class Log:
 
     def draw(self):
         # TODO: Add fading color to messages
-        print(Fore.LIGHTBLUE_EX, end='')
         for i in range(len(self.messages)):
             msg_count = self.messages[i][1]
             msg_text = self.messages[i][0]
@@ -30,7 +32,6 @@ class Log:
                 print(f'{msg_text} x {msg_count}')
             else:
                 print(msg_text)
-        print(Style.RESET_ALL)
 
     def add_msg(self, msg):
         if len(self.messages) > 0:
@@ -161,6 +162,7 @@ log = Log(10)
 hero = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
 inv = Inventory()
 
+
 # TODO: rework drawing so just only changed tiles get reprinted in process
 def draw_level():
     clear()
@@ -176,17 +178,21 @@ def draw_level():
                 if lvl[i][j].tile_char == '█':
                     print(Fore.LIGHTBLUE_EX, end='')
                 print(lvl[i][j].tile_char, end='')
-                print(Style.RESET_ALL, end='')
+                #print(Style.RESET_ALL, end='')
         print()
     draw_ui()
 
 
 def draw_ui():
     print(Fore.LIGHTYELLOW_EX, end='')
+    print(Style.DIM, end='')
     inv.draw()
     print('-' * 20)
+    print(Fore.LIGHTBLUE_EX, end='')
+    print(Style.BRIGHT, end='')
     log.draw()
     print(Style.RESET_ALL)
+
 
 
 def input_handler():
