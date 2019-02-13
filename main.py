@@ -13,6 +13,7 @@ from tileset import tile_set
 def clear():
     os.system('cls')
 
+
 def set_color():
     os.system('color f4')
 
@@ -116,8 +117,8 @@ class Hero:
                 log.add_msg(f'You opened a {game_state.level[x][y].name[:1].lower()}{game_state.level[x][y].name[1:]}.')
             else:
                 log.add_msg(f'You need to find a key to open a {game_state.level[x][y].name[:1].lower()}{game_state.level[x][y].name[1:]}.')
-        else:
-            log.add_msg("You can't move here.")
+        #else:
+            #log.add_msg("You can't move here.")
 
     def move(self, x, y):
         if game_state.level[x][y].can_walk_on:
