@@ -81,6 +81,10 @@ def remove_object(obj, x, y):
     G_STATE.level[x][y].delete_object(obj)
 
 
+def lower_letter(obj):
+        return obj.name[:1].lower() + obj.name[1:]
+
+
 class Hero:
     tile_char = '☻'
 
@@ -90,16 +94,18 @@ class Hero:
         self.name = name
 
     def open(self, x, y):
+        obj_name = lower_letter(G_STATE.level[x][y])  # lowercase 1st letter for log
         if G_STATE.level[x][y].is_closed:
             if INVENTORY.item_inside(Key):
                 G_STATE.upd_chars.append((x, y))
                 G_STATE.upd_chars.append((self.x_pos, self.y_pos))
                 G_STATE.level[x][y].open()
                 INVENTORY.remove_item(Key.id)
-                # TODO: rework this naming problem
-                LOG.add_msg(f'You opened a {G_STATE.level[x][y].name[:1].lower()}{G_STATE.level[x][y].name[1:]}.')
+                LOG.add_msg(f'You opened a {obj_name}.')
             else:
-                LOG.add_msg(f'You need to find a key to open a {G_STATE.level[x][y].name[:1].lower()}{G_STATE.level[x][y].name[1:]}.')
+                LOG.add_msg(f'You need to find a key to open a {obj_name}.')
+        else:
+            LOG.add_msg(f"You can't open a {obj_name}.")
 
     def move(self, x, y):
         if G_STATE.level[x][y].can_walk_on:

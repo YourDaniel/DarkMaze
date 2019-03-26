@@ -27,7 +27,7 @@ class Wall(TileObject):
         self.obtainable = False
         self.description = 'A rough stone wall. It is dark and cold.'
         super(Wall, self).__init__(x, y)
-#hello
+
 
 class Floor(TileObject):
     name = 'Floor'

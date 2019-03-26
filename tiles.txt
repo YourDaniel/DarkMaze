@@ -21,3 +21,5 @@
 □ pressure_plate
 
 ▼ stairs_down
+
+‡ interesting symbol

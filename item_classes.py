@@ -1,6 +1,6 @@
 # from tile_classes import TileObject
 from tileset import tile_set
-# TODO: implement IDs. To distiguish different items
+# TODO: implement IDs. To distinguish different items
 
 
 class ItemObject:
@@ -20,11 +20,13 @@ class Key(ItemObject):
     '''def __init__(self, x, y):
         super(Key, self).__init__(x, y)'''
 
+
 class Diamond(ItemObject):
     id = 2
     name = 'Diamond'
     description = 'A beautiful diamond. It shines brightly in the dark.'
     tile_char = tile_set["diamond"]["custom_tile"]
+
 
 class Ace(ItemObject):
     id = 3
