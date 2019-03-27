@@ -1,22 +1,22 @@
 tile_set = {
     'floor':
-        dict(name='Floor tile', standard_tile='.', custom_tile='.'),
+        dict(standard_tile='.', custom_tile='.', name='Floor tile'),
     'wall':
-        dict(name='Wall tile', standard_tile='█', custom_tile='█'),
+        dict(standard_tile='█', custom_tile='█', name='Wall tile'),
     'stairs_down':
-        dict(name='Downward Staircase Tile', standard_tile='▼', custom_tile='▼'),
+        dict(standard_tile='▼', custom_tile='▼', name='Downward Staircase Tile'),
     'pressure_plate':
-        dict(name='Pressure Plate Tile', standard_tile='□', custom_tile='□'),
+        dict(standard_tile='□', custom_tile='□', name='Pressure Plate Tile'),
     'door_v':
-        dict(name='Vertical Door Tile', standard_tile='║', custom_tile='║'),
+        dict(standard_tile='║', custom_tile='║', name='Vertical Door Tile'),
     'door_h':
-        dict(name='Horizontal Door Tile', standard_tile='═', custom_tile='═'),
+        dict(standard_tile='═', custom_tile='═', name='Horizontal Door Tile'),
     'hero':
-        dict(name='The Character', standard_tile='@', custom_tile='@'),
+        dict(standard_tile='@', custom_tile='@', name='The Character'),
     'key':
-        dict(name='Key', standard_tile='╘', custom_tile='╘'),
+        dict(standard_tile='╘', custom_tile='╘', name='Key'),
     'chest':
-        dict(name='Chest', standard_tile='■', custom_tile='■'),
+        dict(standard_tile='■', custom_tile='■', name='Chest'),
     'diamond':
-        dict(name='Diamond', standard_tile='◊', custom_tile='◊')
+        dict(standard_tile='◊', custom_tile='◊', name='Diamond')
 }

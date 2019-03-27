@@ -1,7 +1,8 @@
 import os
-from colorama import Fore, Back
+from colorama import Fore, Back, Style
 import tile_classes
 from tileset import tile_set
+from esc_seq_wraps import clear_line, move_cursor_to, clear
 
 
 def create_tile(raw_tile, x, y):
@@ -42,22 +43,21 @@ class GameState:
                 y = 0
                 line = []
 
-    def clear(self):
-        os.system('cls')
-
-    def get_cursor_position(self, x, y):
-        return '\x1b[' + str(x + 1) + ';' + str(y + 1) + 'H'
-
-    # TODO: rework drawing so just only changed tiles get reprinted in process
     def draw_a_tile(self, x, y):
         # if there are any elements on a tile and they're not hidden we draw them instead of an actual tile
+        try:
+            if self.level[x][y].color == 'red':
+                print(Fore.RED, end='')
+        except AttributeError:
+            pass
         if len(self.level[x][y].objects_on) > 0 and not self.level[x][y].objects_hidden:
             print(self.level[x][y].objects_on[-1].tile_char, end='')
         else:
             print(self.level[x][y].tile_char, end='')
+        print(Style.RESET_ALL, end='')
 
     def draw_level(self):
-        self.clear()
+        clear()
         for i in range(len(self.level)):
             for j in range(len(self.level[i])):
                 self.draw_a_tile(i, j)
@@ -68,7 +68,6 @@ class GameState:
         for i in range(len(self.upd_chars)):
             x = self.upd_chars[i][0]
             y = self.upd_chars[i][1]
-            print(self.get_cursor_position(x, y), end='')
+            move_cursor_to(x, y)
             self.draw_a_tile(x, y)
-        print(self.get_cursor_position(23, 0), end='')
         self.upd_chars = []

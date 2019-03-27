@@ -38,7 +38,7 @@ class Floor(TileObject):
         self.destroyable = False
         self.can_walk_on = True
         self.obtainable = False
-        self.description = 'a rough stone floor. It is dark and cold.'
+        self.description = 'A rough stone floor. It is dark and cold.'
         super(Floor, self).__init__(x, y)
 
 
@@ -57,7 +57,7 @@ class Door(TileObject):
         self.destroyable = True
         self.can_walk_on = False
         self.obtainable = False
-        self.description = 'an old wooden door with rusty handle and a keyhole.'
+        self.description = 'An old wooden door with rusty handle and a keyhole.'
         super(Door, self).__init__(x, y)
 
     def open(self):
@@ -94,7 +94,7 @@ class Chest(TileObject):
         self.can_walk_on = False
         self.obtainable = False
         self.is_closed = True
-        self.description = 'a crude chest with iron frame. It has a keyhole.'
+        self.description = 'A crude chest with iron frame. It has a keyhole.'
         self.closed_tile_char = self.tile_char
         super(Chest, self).__init__(x, y)
         self.objects_hidden = True

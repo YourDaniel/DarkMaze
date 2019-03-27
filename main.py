@@ -2,28 +2,21 @@ from readchar import readkey
 import colorama
 from colorama import Fore, Back, Style
 import tile_classes
-from item_classes import Key
-from item_classes import Diamond
-from item_classes import Ace
+from item_classes import Key, Diamond, Ace
 from gamestate import GameState
+from esc_seq_wraps import *
+import ctypes
+
+kernel32 = ctypes.windll.kernel32
+kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 
 class Log:
     messages = []
+    log_line = 13  # Log starts from this row in console
 
     def __init__(self, log_len):
         self.log_len = log_len
-
-    def draw(self):
-        print(Fore.LIGHTBLUE_EX, end='')
-        for i in range(len(self.messages)):
-            msg_count = self.messages[i][1]
-            msg_text = self.messages[i][0]
-            if msg_count > 1:
-                print(f'{msg_text} x {msg_count}')
-            else:
-                print(msg_text)
-        print(Style.RESET_ALL)
 
     def add_msg(self, msg):
         if len(self.messages) > 0 and self.messages[0][0] == msg:
@@ -33,18 +26,30 @@ class Log:
             self.messages.insert(0, block)
         if len(self.messages) > self.log_len:  # Cutting log to max size
             self.messages = self.messages[:self.log_len]
-        # TODO: Rework this shit
-        print('\x1b[' + str(13 + 1) + ';' + str(0 + 1) + 'H', end='')
         self.draw()
+
+    def draw(self):
+        print(Fore.LIGHTBLUE_EX, end='')
+        # First, set cursor to a start of line where Log should be drawn with ESC sequence
+        move_cursor_to(self.log_line, 0)
+        for i in range(len(self.messages)):
+            msg_text = self.messages[i][0]
+            msg_count = self.messages[i][1]
+            # Then clear old message to print out a new one
+            clear_line()
+            if msg_count > 1:
+                print(f'{msg_text} x {msg_count}')
+            else:
+                print(msg_text)
+        print(Style.RESET_ALL, end='')
 
 
 class Inventory:
     content = []
+    inv_line = 10  # Inventory starts from this row in console
 
     def add_item(self, obj):
         self.content.append(obj)
-        # TODO: Rework this shit
-        print('\x1b[' + str(10 + 1) + ';' + str(0 + 1) + 'H', end='')
         self.draw()
 
     def remove_item(self, obj_id):
@@ -52,19 +57,22 @@ class Inventory:
             if self.content[i].id == obj_id:
                 del self.content[i]
                 break
+        self.draw()
 
     def draw(self):
         print(Fore.LIGHTYELLOW_EX, end='')
+        move_cursor_to(self.inv_line, 0)
         print('Inventory:')
+        clear_line()
         if len(self.content) == 0:
-            print("Your backpack is empty")
+            print('Your backpack is empty')
         for i in range(len(self.content)):
             if i+1 != len(self.content):
                 print(self.content[i].name, end=', ')
             else:
                 print(self.content[i].name + '.')
         print('-' * 20)
-        print(Style.RESET_ALL)
+        print(Style.RESET_ALL, end='')
 
     def item_inside(self, obj):
         if any(isinstance(i, obj) for i in self.content):
@@ -87,6 +95,7 @@ def lower_letter(obj):
 
 class Hero:
     tile_char = '☻'
+    color = 'red'
 
     def __init__(self, x_position, y_position, name):
         self.x_pos = x_position
@@ -170,8 +179,10 @@ def main():
     place_object(Key(), 2, 13)
     place_object(Key(), 4, 14)
     place_object(HERO, HERO.x_pos, HERO.y_pos)
-    LOG.add_msg('Welcome to Dark Maze!')
+    LOG.add_msg('WASD for movement, L - look, G - Grab')
     LOG.add_msg('Find a diamond! ◊')
+    LOG.add_msg('Welcome to Dark Maze!')
+    hide_cursor()
     G_STATE.draw_level()
     INVENTORY.draw()
     LOG.draw()
