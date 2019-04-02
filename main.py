@@ -4,25 +4,34 @@ from colorama import Fore, Back, Style
 import tile_classes
 from item_classes import Key, Diamond, Ace
 from gamestate import GameState
-from esc_seq_wraps import *
+from ansi_wraps import *
+from datetime import datetime
 import ctypes
+import json
 
 kernel32 = ctypes.windll.kernel32
 kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+log_file = open('logs.txt', 'a')
 
 
 class Log:
     messages = []
-    log_line = 13  # Log starts from this row in console
+    log_line = 13  # Log starts from this row in a terminal window
 
-    def __init__(self, log_len):
+    def __init__(self, log_len, timestamps):
         self.log_len = log_len
+        self.timestamps_on = timestamps
 
     def add_msg(self, msg):
+        timestamp = datetime.today().strftime("[%H:%M:%S] ")
+        log_file.write(timestamp + msg + '\n')
         if len(self.messages) > 0 and self.messages[0][0] == msg:
             self.messages[0][1] += 1
         else:
-            block = [msg, 1]  # 2nd value - number of same msg
+            if self.timestamps_on:
+                block = [timestamp + msg, 1]  # 2nd value - number of same msg
+            else:
+                block = [msg, 1]
             self.messages.insert(0, block)
         if len(self.messages) > self.log_len:  # Cutting log to max size
             self.messages = self.messages[:self.log_len]
@@ -95,7 +104,6 @@ def lower_letter(obj):
 
 class Hero:
     tile_char = '☻'
-    color = 'red'
 
     def __init__(self, x_position, y_position, name):
         self.x_pos = x_position
@@ -103,14 +111,14 @@ class Hero:
         self.name = name
 
     def open(self, x, y):
-        obj_name = lower_letter(G_STATE.level[x][y])  # lowercase 1st letter for log
+        obj_name = G_STATE.level[x][y].name_a  # lowercase 1st letter for log
         if G_STATE.level[x][y].is_closed:
             if INVENTORY.item_inside(Key):
                 G_STATE.upd_chars.append((x, y))
                 G_STATE.upd_chars.append((self.x_pos, self.y_pos))
                 G_STATE.level[x][y].open()
                 INVENTORY.remove_item(Key.id)
-                LOG.add_msg(f'You opened a {obj_name}.')
+                LOG.add_msg(f'You opened {obj_name}.')
             else:
                 LOG.add_msg(f'You need to find a key to open a {obj_name}.')
         else:
@@ -131,14 +139,30 @@ class Hero:
             except AttributeError:
                 LOG.add_msg("You can't move here.")
 
+    def grab(self):
+        objects_below = G_STATE.level[self.x_pos][self.y_pos].objects_on
+        tile_name = G_STATE.level[self.x_pos][self.y_pos].name_a
+        if len(objects_below) > 1:                 # One object on the ground is always a hero
+            INVENTORY.add_item(objects_below[-2])  # Since hero is always standing at -1 we grab -2
+            obj_name = objects_below[-2].name_a
+            remove_object(objects_below[-2], self.x_pos, self.y_pos)
+            G_STATE.upd_chars.append((self.x_pos, self.y_pos))
+            LOG.add_msg(f'You grabbed {obj_name} from the {tile_name}.')
+        else:
+            LOG.add_msg('There are no items here.')
+
+    def drop(self):
+        INVENTORY.remove_item()
+
 
 # TODO: rework positioning in the file and remove classes from it
 G_STATE = GameState()
-LOG = Log(10)
+LOG = Log(log_len=10, timestamps=False)
 HERO = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
 INVENTORY = Inventory()
 
 
+# TODO: Remove all logic from input_handler, use it only for appropriate calls
 def input_handler():
     key_pressed = readkey()
     if key_pressed == 'w':
@@ -152,13 +176,11 @@ def input_handler():
     elif key_pressed == 't':
         LOG.add_msg(f'Hero position: ({HERO.x_pos},{HERO.y_pos})')
     elif key_pressed == 'g':
-        objects_below = G_STATE.level[HERO.x_pos][HERO.y_pos].objects_on
-        if len(objects_below) > 1:
-            INVENTORY.add_item(objects_below[-2])  # -2 to exclude hero itself because he's always standing at -1
-            remove_object(objects_below[-2], HERO.x_pos, HERO.y_pos)
-            G_STATE.upd_chars.append((HERO.x_pos, HERO.y_pos))
-        else:
-            LOG.add_msg('There are no items here.')
+        HERO.grab()
+    elif key_pressed == '\x1b':
+        LOG.add_msg('File closed succesfully!')
+        log_file.close()
+        close_terminal()
     elif key_pressed == 'l':  # Look
         objects_below = G_STATE.level[HERO.x_pos][HERO.y_pos].objects_on
         tile_below = G_STATE.level[HERO.x_pos][HERO.y_pos]
@@ -171,8 +193,14 @@ def input_handler():
 
 
 def main():
+    now = datetime.today()
+    log_file.write('-------------------------------------\n')
+    log_file.write(now.strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
+    # TODO: Not use colorama, rework all calls to it
     colorama.init()
-    G_STATE.load_level('test_level.txt')
+    G_STATE.load_level('levels/test_level.txt')
+    #data = open('data', 'w')
+    #json.dump(G_STATE.level, data)
     place_object(Key(), 2, 2)
     place_object(Diamond(), 1, 4)
     place_object(Ace(), 5, 14)
@@ -180,7 +208,7 @@ def main():
     place_object(Key(), 4, 14)
     place_object(HERO, HERO.x_pos, HERO.y_pos)
     LOG.add_msg('WASD for movement, L - look, G - Grab')
-    LOG.add_msg('Find a diamond! ◊')
+    LOG.add_msg('Find a diamond!')
     LOG.add_msg('Welcome to Dark Maze!')
     hide_cursor()
     G_STATE.draw_level()

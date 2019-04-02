@@ -18,6 +18,7 @@ class TileObject:
 
 class Wall(TileObject):
     name = 'Wall'
+    name_a = 'the wall'
     tile_char = tile_set['wall']['custom_tile']
     bottom_tile_char = tile_set['floor']['custom_tile']
 
@@ -31,6 +32,7 @@ class Wall(TileObject):
 
 class Floor(TileObject):
     name = 'Floor'
+    name_a = 'the floor'
     tile_char = tile_set['floor']['custom_tile']
     bottom_tile_char = tile_set['floor']['custom_tile']
 
@@ -44,6 +46,7 @@ class Floor(TileObject):
 
 class Door(TileObject):
     name = 'Door'
+    name_a = 'the door'
     bottom_tile_char = "'"
 
     def __init__(self, x, y, align):
@@ -72,7 +75,8 @@ class Door(TileObject):
 
 
 class StairsDown(TileObject):
-    name = 'Downward Staircase'
+    name = 'Downward stairs'
+    name_a = 'the stairs'
     tile_char = tile_set['stairs_down']['custom_tile']
     bottom_tile_char = tile_set['floor']['custom_tile']
 
@@ -86,6 +90,7 @@ class StairsDown(TileObject):
 
 class Chest(TileObject):
     name = 'Chest'
+    name_a = 'a chest'
     tile_char = '■'
     bottom_tile_char = '∟'
 

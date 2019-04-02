@@ -1,3 +1,10 @@
+import os
+
+
+def close_terminal():
+    os.system('taskkill /IM cmd.exe')
+
+
 def clear_line():
     print('\x1b[K', end='')
 

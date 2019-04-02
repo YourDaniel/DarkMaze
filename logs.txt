@@ -1,0 +1,740 @@
+Game session at 17:14:15 on 02.04.2019
+[17:14:15] WASD for movement, L - look, G - Grab
+[17:14:15] Find a diamond!
+[17:14:15] Welcome to Dark Maze!
+[17:14:16] You need to find a key to open a chest.
+[17:14:16] You need to find a key to open a chest.
+[17:14:17] You need to find a key to open a chest.
+[17:14:19] You need to find a key to open a chest.
+[17:14:19] You need to find a key to open a chest.
+[17:14:20] You need to find a key to open a chest.
+[17:14:20] You need to find a key to open a chest.
+[17:14:20] You need to find a key to open a chest.
+[17:14:20] You need to find a key to open a chest.
+[17:14:23] You can't move here.
+[17:14:23] You can't move here.
+[17:14:24] You can't move here.
+[17:14:24] You need to find a key to open a door.
+[17:14:24] You can't move here.
+[17:14:24] You need to find a key to open a door.
+[17:14:25] You can't move here.
+[17:14:28] You opened a chest.
+[17:14:30] You see a worn ace of spades card. It has a ripped corner.
+[17:14:31] You see a rough stone floor. It is dark and cold.
+[17:14:32] You see a crude chest with iron frame. It has a keyhole.
+[17:14:33] You can't move here.
+[17:14:33] You can't move here.
+[17:14:33] You can't move here.
+[17:14:34] You opened a door.
+[17:14:35] You see an old wooden door with rusty handle and a keyhole.
+[17:14:37] You see a small rusted key. Used for opening doors.
+[17:14:38] You opened a chest.
+[17:14:39] You see a beautiful diamond. It shines brightly in the dark.
+[17:14:45] You can't move here.
+[17:14:46] Hero position: (8,15)
+[17:14:48] You can't move here.
+[17:14:48] You can't move here.
+[17:14:50] You see steps leading down to the darkness. You feel a cold air blowing from there.
+-------------------------------------
+Game session at 17:17:09 on 02.04.2019
+[17:17:09] WASD for movement, L - look, G - Grab
+[17:17:09] Find a diamond!
+[17:17:09] Welcome to Dark Maze!
+[17:17:11] You can't move here.
+[17:17:11] You need to find a key to open a chest.
+[17:17:14] You opened a chest.
+[17:17:17] You see a crude chest with iron frame. It has a keyhole.
+-------------------------------------
+Game session at 17:23:19 on 02.04.2019
+[17:23:19] WASD for movement, L - look, G - Grab
+[17:23:19] Find a diamond!
+[17:23:19] Welcome to Dark Maze!
+[17:23:24] You can't move here.
+[17:23:24] You can't move here.
+[17:23:24] You can't move here.
+[17:23:24] You can't move here.
+[17:23:25] You can't move here.
+[17:23:25] You can't move here.
+[17:23:25] You can't move here.
+[17:23:25] You can't move here.
+[17:23:25] You can't move here.
+[17:23:26] You opened a chest.
+[17:23:27] You can't move here.
+[17:23:28] You can't move here.
+[17:23:28] You can't move here.
+[17:23:28] You can't move here.
+[17:23:28] You can't move here.
+[17:23:28] You can't move here.
+[17:23:28] You can't move here.
+[17:23:29] You can't move here.
+[17:23:29] You can't move here.
+[17:23:30] You opened a door.
+[17:23:30] You can't move here.
+[17:23:32] You opened a chest.
+[17:23:34] You see a crude chest with iron frame. It has a keyhole.
+-------------------------------------
+Game session at 17:27:47 on 02.04.2019
+[17:27:47] WASD for movement, L - look, G - Grab
+-------------------------------------
+Game session at 17:31:43 on 02.04.2019
+[17:31:43] WASD for movement, L - look, G - Grab
+[17:31:43] Find a diamond!
+[17:31:43] Welcome to Dark Maze!
+-------------------------------------
+Game session at 17:32:39 on 02.04.2019
+[17:32:39] WASD for movement, L - look, G - Grab
+[17:32:39] Find a diamond!
+[17:32:39] Welcome to Dark Maze!
+[17:32:42] You grabbed a Key from the Floor.
+[17:32:50] You grabbed a Key from the Floor.
+[17:32:53] You opened a chest.
+[17:32:56] You see a worn ace of spades card. It has a ripped corner.
+[17:32:58] You grabbed a Ace of Spades from the Chest.
+-------------------------------------
+Game session at 17:33:10 on 02.04.2019
+[17:33:10] WASD for movement, L - look, G - Grab
+[17:33:10] Find a diamond!
+[17:33:10] Welcome to Dark Maze!
+-------------------------------------
+Game session at 17:36:01 on 02.04.2019
+[17:36:01] WASD for movement, L - look, G - Grab
+[17:36:01] Find a diamond!
+[17:36:01] Welcome to Dark Maze!
+[17:36:02] You need to find a key to open a chest.
+[17:36:03] You grabbed a Key from the Floor.
+[17:36:04] You grabbed a Key from the Floor.
+[17:36:05] You opened a chest.
+[17:36:06] You grabbed a Ace of Spades from the Chest.
+[17:36:07] You see a crude chest with iron frame. It has a keyhole.
+[17:36:07] You can't move here.
+[17:36:08] You can't move here.
+[17:36:08] You can't move here.
+[17:36:08] You can't move here.
+[17:36:09] You opened a door.
+[17:36:09] You see an old wooden door with rusty handle and a keyhole.
+[17:36:11] You grabbed a Key from the Floor.
+[17:36:12] You opened a chest.
+[17:36:14] You see a beautiful diamond. It shines brightly in the dark.
+[17:36:14] You grabbed a Diamond from the Chest.
+[17:36:29] You can't move here.
+[17:36:32] You can't move here.
+[17:36:32] You can't move here.
+-------------------------------------
+Game session at 17:36:55 on 02.04.2019
+[17:36:55] WASD for movement, L - look, G - Grab
+[17:36:55] Find a diamond!
+[17:36:55] Welcome to Dark Maze!
+[17:36:58] You see a small rusted key. Used for opening doors.
+[17:36:58] You grabbed a Key from the Floor.
+[17:36:59] You see a small rusted key. Used for opening doors.
+[17:36:59] You grabbed a Key from the Floor.
+[17:36:59] You opened a chest.
+[17:37:00] You grabbed a Ace of Spades from the Chest.
+[17:37:01] You can't move here.
+[17:37:01] You can't move here.
+[17:37:01] You opened a door.
+[17:37:01] You can't move here.
+[17:37:02] You see an old wooden door with rusty handle and a keyhole.
+[17:37:04] You grabbed a Key from the Floor.
+[17:37:04] You opened a chest.
+[17:37:05] You grabbed a Diamond from the Chest.
+[17:37:05] You can't move here.
+[17:37:07] You see a crude chest with iron frame. It has a keyhole.
+[17:37:08] File closed succesfully!
+-------------------------------------
+Game session at 18:16:34 on 02.04.2019
+[18:16:34] WASD for movement, L - look, G - Grab
+[18:16:34] Find a diamond!
+[18:16:34] Welcome to Dark Maze!
+[18:16:37] You can't move here.
+[18:16:39] You can't move here.
+[18:16:39] You can't move here.
+[18:16:39] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:40] You can't move here.
+[18:16:41] You can't move here.
+[18:16:41] You can't move here.
+[18:16:41] You can't move here.
+[18:16:41] You can't move here.
+[18:16:41] You can't move here.
+[18:16:41] You can't move here.
+[18:16:41] You can't move here.
+[18:16:42] You can't move here.
+[18:16:42] You can't move here.
+[18:16:42] You can't move here.
+[18:16:45] You grabbed a key from the the floor.
+[18:16:46] You grabbed a key from the the floor.
+[18:16:47] You opened a chest.
+[18:16:50] You see a worn ace of spades playing card. It has a ripped corner.
+[18:16:51] You grabbed an ace of spades from the a chest.
+[18:16:53] You can't move here.
+[18:16:56] You opened the door.
+[18:16:58] You grabbed a key from the the floor.
+[18:16:58] You opened a chest.
+[18:16:59] You grabbed a diamond from the a chest.
+[18:17:04] You can't move here.
+[18:17:06] You can't move here.
+[18:17:12] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:17] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:18] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:19] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:20] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:21] You can't move here.
+[18:17:23] You can't move here.
+[18:17:24] You can't move here.
+[18:17:31] You can't move here.
+[18:17:34] You can't move here.
+[18:17:37] You can't move here.
+[18:17:38] You can't move here.
+[18:17:40] You can't move here.
+[18:17:41] You can't move here.
+[18:17:41] You can't move here.
+[18:17:42] You can't move here.
+[18:17:42] You can't move here.
+[18:17:42] You can't move here.
+[18:17:42] You can't move here.
+[18:17:42] You can't move here.
+[18:17:42] You can't move here.
+[18:17:42] You can't move here.
+[18:17:43] You can't move here.
+[18:17:43] You can't move here.
+[18:17:43] You can't move here.
+[18:17:43] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:44] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:46] You can't move here.
+[18:17:47] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:48] You can't move here.
+[18:17:49] You can't move here.
+[18:17:49] You can't move here.
+[18:17:49] You can't move here.
+[18:17:49] You can't move here.
+[18:17:49] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:50] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:51] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:52] You can't move here.
+[18:17:53] You can't move here.
+[18:17:53] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:54] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] You can't move here.
+[18:17:55] File closed succesfully!
+-------------------------------------
+Game session at 19:03:33 on 02.04.2019
+[19:03:33] WASD for movement, L - look, G - Grab
+[19:03:33] Find a diamond!
+[19:03:33] Welcome to Dark Maze!
+[19:03:38] You can't move here.
+[19:03:38] You can't move here.
+[19:03:39] You can't move here.
+[19:03:39] You can't move here.
+[19:03:39] You can't move here.
+[19:03:40] You can't move here.
+[19:03:40] You can't move here.
+[19:03:40] You can't move here.
+[19:03:41] You can't move here.
+[19:03:41] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:42] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:43] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:44] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:45] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:46] You can't move here.
+[19:03:47] You can't move here.
+[19:03:47] You can't move here.
+[19:03:48] You can't move here.
+[19:03:50] You see steps leading down to the darkness. You feel a cold air blowing from there.
+[19:03:52] There are no items here.
+[19:03:56] You can't move here.
+[19:03:56] You can't move here.
+[19:03:58] You can't move here.
+[19:03:58] You can't move here.
+[19:03:58] You can't move here.
+[19:03:58] You can't move here.
+[19:04:00] You need to find a key to open a a chest.
+[19:04:02] You grabbed a key from the the floor.
+[19:04:02] You opened a chest.
+[19:04:03] You grabbed an ace of spades from the a chest.
+[19:04:10] You grabbed a key from the the floor.
+[19:04:12] You can't move here.
+[19:04:12] You can't move here.
+[19:04:13] You opened the door.
+[19:04:16] You grabbed a key from the the floor.
+[19:04:17] You opened a chest.
+[19:04:18] You grabbed a diamond from the a chest.
+[19:04:19] You can't move here.
+[19:04:19] You can't move here.
+[19:04:19] You can't move here.
+[19:04:19] You can't move here.
+[19:04:19] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:20] You can't move here.
+[19:04:21] You can't move here.
+[19:04:21] You can't move here.
+[19:04:21] You can't move here.
+[19:04:21] You can't move here.
+[19:04:21] You can't move here.
+[19:04:21] You can't move here.
+[19:04:21] You can't move here.
+[19:04:22] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:23] You can't move here.
+[19:04:24] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:26] You can't move here.
+[19:04:27] You can't move here.
+[19:04:27] You can't move here.
+[19:04:27] You can't move here.
+[19:04:27] You can't move here.
+[19:04:27] You can't move here.
+[19:04:27] You can't move here.
+[19:04:27] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:28] You can't move here.
+[19:04:30] You can't move here.
+[19:04:30] You can't move here.
+[19:04:30] You can't move here.
+[19:04:30] You can't move here.
+[19:04:31] You can't move here.
+[19:04:31] You can't move here.
+[19:04:31] You can't move here.
+[19:04:31] You can't move here.
+[19:04:32] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:35] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:36] You can't move here.
+[19:04:43] File closed succesfully!
+-------------------------------------
+Game session at 19:04:52 on 02.04.2019
+[19:04:52] WASD for movement, L - look, G - Grab
+[19:04:52] Find a diamond!
+[19:04:52] Welcome to Dark Maze!
+[19:04:54] File closed succesfully!
+-------------------------------------
+Game session at 19:16:23 on 02.04.2019
+[19:16:23] WASD for movement, L - look, G - Grab
+[19:16:23] Find a diamond!
+[19:16:23] Welcome to Dark Maze!
+[19:16:24] File closed succesfully!
+-------------------------------------
+Game session at 19:16:27 on 02.04.2019
+[19:16:27] WASD for movement, L - look, G - Grab
+[19:16:27] Find a diamond!
+[19:16:27] Welcome to Dark Maze!
+[19:16:28] File closed succesfully!
+-------------------------------------
+Game session at 19:16:42 on 02.04.2019
+[19:16:42] WASD for movement, L - look, G - Grab
+[19:16:42] Find a diamond!
+[19:16:42] Welcome to Dark Maze!
+[19:16:44] File closed succesfully!
+-------------------------------------
+Game session at 19:25:38 on 02.04.2019
+-------------------------------------
+Game session at 19:40:36 on 02.04.2019
+[19:40:36] WASD for movement, L - look, G - Grab
+[19:40:36] Find a diamond!
+[19:40:36] Welcome to Dark Maze!

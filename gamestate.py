@@ -2,7 +2,7 @@ import os
 from colorama import Fore, Back, Style
 import tile_classes
 from tileset import tile_set
-from esc_seq_wraps import clear_line, move_cursor_to, clear
+from ansi_wraps import clear_line, move_cursor_to, clear
 
 
 def create_tile(raw_tile, x, y):
@@ -45,16 +45,10 @@ class GameState:
 
     def draw_a_tile(self, x, y):
         # if there are any elements on a tile and they're not hidden we draw them instead of an actual tile
-        try:
-            if self.level[x][y].color == 'red':
-                print(Fore.RED, end='')
-        except AttributeError:
-            pass
         if len(self.level[x][y].objects_on) > 0 and not self.level[x][y].objects_hidden:
             print(self.level[x][y].objects_on[-1].tile_char, end='')
         else:
             print(self.level[x][y].tile_char, end='')
-        print(Style.RESET_ALL, end='')
 
     def draw_level(self):
         clear()

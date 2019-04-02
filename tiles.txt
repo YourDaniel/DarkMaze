@@ -23,3 +23,7 @@
 ▼ stairs_down
 
 ‡ interesting symbol
+
+☼ value
+
+† cross
