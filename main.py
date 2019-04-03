@@ -37,6 +37,7 @@ class Log:
             self.messages = self.messages[:self.log_len]
         self.draw()
 
+    # TODO: Make messages of different colors (warnings, battle, common etc.) and highlight items
     def draw(self):
         print(Fore.LIGHTBLUE_EX, end='')
         # First, set cursor to a start of line where Log should be drawn with ESC sequence
@@ -120,7 +121,7 @@ class Hero:
         self.name = name
 
     def open(self, x, y):
-        obj_name = G_STATE.level[x][y].name_a  # lowercase 1st letter for log
+        obj_name = G_STATE.level[x][y].name_a
         if G_STATE.level[x][y].is_closed:
             if INVENTORY.item_inside(Key):
                 G_STATE.upd_chars.append((x, y))
@@ -233,8 +234,6 @@ def main():
     #json.dump(G_STATE.level, data)
     place_object(Key(), 2, 2)
     place_object(Diamond(), 1, 4)
-    place_object(Diamond(), 1, 5)
-    place_object(Diamond(), 1, 6)
     place_object(Ace(), 5, 14)
     place_object(Key(), 2, 13)
     place_object(Key(), 4, 14)
