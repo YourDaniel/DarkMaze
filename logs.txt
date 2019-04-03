@@ -738,3 +738,199 @@ Game session at 19:40:36 on 02.04.2019
 [19:40:36] WASD for movement, L - look, G - Grab
 [19:40:36] Find a diamond!
 [19:40:36] Welcome to Dark Maze!
+-------------------------------------
+Game session at 12:30:27 on 03.04.2019
+[12:30:27] WASD for movement, L - look, G - Grab
+[12:30:27] Find a diamond!
+[12:30:27] Welcome to Dark Maze!
+-------------------------------------
+Game session at 13:25:57 on 03.04.2019
+[13:25:57] WASD for movement, L - look, G - Grab
+[13:25:57] Find a diamond!
+[13:25:57] Welcome to Dark Maze!
+-------------------------------------
+Game session at 13:26:34 on 03.04.2019
+[13:26:34] WASD for movement, L - look, G - Grab
+[13:26:34] Find a diamond!
+[13:26:34] Welcome to Dark Maze!
+-------------------------------------
+Game session at 13:26:42 on 03.04.2019
+[13:26:42] WASD for movement, L - look, G - Grab
+[13:26:42] Find a diamond!
+[13:26:42] Welcome to Dark Maze!
+[13:26:46] You can't move here.
+[13:26:47] You can't move here.
+[13:26:48] You can't move here.
+[13:26:48] You can't move here.
+[13:26:51] You can't move here.
+[13:26:51] You can't move here.
+[13:26:51] You can't move here.
+[13:26:51] You can't move here.
+[13:26:51] You can't move here.
+[13:26:51] You can't move here.
+[13:26:53] You can't move here.
+[13:26:53] You can't move here.
+[13:26:53] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:56] You can't move here.
+[13:26:57] You can't move here.
+[13:26:58] You can't move here.
+[13:26:58] You can't move here.
+[13:26:59] You can't move here.
+[13:26:59] You can't move here.
+[13:26:59] You can't move here.
+[13:27:00] You can't move here.
+[13:27:00] You can't move here.
+[13:27:00] You can't move here.
+[13:27:00] You can't move here.
+-------------------------------------
+Game session at 13:27:27 on 03.04.2019
+[13:27:27] WASD for movement, L - look, G - Grab
+[13:27:27] Find a diamond!
+[13:27:27] Welcome to Dark Maze!
+-------------------------------------
+Game session at 19:23:58 on 03.04.2019
+[19:23:58] WASD for movement, L - look, G - Grab
+[19:23:58] Find a diamond!
+[19:23:58] Welcome to Dark Maze!
+-------------------------------------
+Game session at 19:25:55 on 03.04.2019
+[19:25:55] WASD for movement, L - look, G - Grab
+[19:25:55] Find a diamond!
+[19:25:55] Welcome to Dark Maze!
+[19:26:01] Select an item to drop
+[19:26:01] Select proper item from your inventory
+[19:26:04] Select an item to drop
+[19:26:04] Select proper item from your inventory
+[19:26:04] Select an item to drop
+[19:26:04] Select proper item from your inventory
+[19:26:08] Select an item to drop
+[19:26:08] Select proper item from your inventory
+[19:26:10] Select an item to drop
+-------------------------------------
+Game session at 19:29:21 on 03.04.2019
+[19:29:21] WASD for movement, L - look, G - Grab
+[19:29:21] Find a diamond!
+[19:29:21] Welcome to Dark Maze!
+[19:29:23] Select an item to drop...
+-------------------------------------
+Game session at 19:39:29 on 03.04.2019
+[19:39:29] WASD for movement, L - look, G - Grab
+[19:39:29] Find a diamond!
+[19:39:29] Welcome to Dark Maze!
+[19:39:35] You grabbed a key from the floor.
+[19:39:39] You grabbed a key from the floor.
+[19:39:41] You can't move here.
+[19:39:41] You can't move here.
+[19:39:42] You opened the door.
+[19:39:44] You grabbed a key from the floor.
+[19:39:45] You opened a chest.
+[19:39:45] You grabbed a diamond from a chest.
+[19:39:47] You can't move here.
+[19:39:47] You can't move here.
+[19:39:48] You can't move here.
+[19:39:54] You can't move here.
+[19:39:56] Select an item to drop. Press C to cancel
+[19:39:58] You dropped a key.
+[19:40:05] Select an item to drop. Press C to cancel
+[19:40:06] You dropped a diamond.
+[19:40:10] You grabbed a diamond from the floor.
+[19:40:11] You grabbed a key from the floor.
+[19:40:12] You can't move here.
+[19:40:18] Select an item to drop. Press C to cancel
+[19:40:19] You dropped a diamond.
+[19:40:20] Select an item to drop. Press C to cancel
+[19:40:21] You dropped a key.
+[19:40:22] Select an item to drop. Press C to cancel
+-------------------------------------
+Game session at 19:45:56 on 03.04.2019
+[19:45:56] WASD for movement, L - look, G - Grab
+[19:45:56] Find a diamond!
+[19:45:56] Welcome to Dark Maze!
+-------------------------------------
+Game session at 19:46:00 on 03.04.2019
+[19:46:00] WASD for movement, L - look, G - Grab
+[19:46:00] Find a diamond!
+[19:46:00] Welcome to Dark Maze!
+[19:46:05] You grabbed a key from the floor.
+[19:46:06] You grabbed a key from the floor.
+[19:46:08] You can't move here.
+[19:46:09] You opened the door.
+[19:46:11] You see an old wooden door with rusty handle and a keyhole.
+[19:46:12] There are no items here.
+[19:46:14] You grabbed a diamond from the floor.
+[19:46:15] You grabbed a diamond from the floor.
+[19:46:17] You grabbed a key from the floor.
+[19:46:18] You opened a chest.
+[19:46:19] You grabbed a diamond from a chest.
+[19:46:26] You can't move here.
+[19:46:26] You can't move here.
+[19:46:26] You can't move here.
+[19:46:28] Select an item to drop. Press C to cancel
+[19:46:37] Select proper item from your inventory.
+[19:46:39] Select proper item from your inventory.
+[19:46:39] Select proper item from your inventory.
+[19:46:39] Select proper item from your inventory.
+[19:46:39] Select proper item from your inventory.
+[19:46:39] Select proper item from your inventory.
+[19:46:40] Select proper item from your inventory.
+[19:46:40] Select proper item from your inventory.
+[19:46:40] Select proper item from your inventory.
+[19:46:40] Select proper item from your inventory.
+[19:46:41] Select proper item from your inventory.
+[19:46:41] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:42] Select proper item from your inventory.
+[19:46:44] You dropped a diamond.
+[19:46:48] Select an item to drop. Press C to cancel
+[19:46:49] You dropped a diamond.
+[19:46:49] Select an item to drop. Press C to cancel
+[19:46:49] You dropped a key.
+[19:46:50] Select an item to drop. Press C to cancel
+[19:46:50] You dropped a diamond.
+[19:46:52] You grabbed a diamond from the floor.
+[19:46:53] You grabbed a key from the floor.
+[19:46:53] You grabbed a diamond from the floor.
+[19:46:53] There are no items here.
+[19:46:53] There are no items here.
+[19:46:54] You grabbed a diamond from the floor.
+[19:47:16] File closed succesfully!
+-------------------------------------
+Game session at 19:52:18 on 03.04.2019
+[19:52:18] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[19:52:18] Find a diamond!
+[19:52:18] Welcome to Dark Maze!
+-------------------------------------
+Game session at 19:55:53 on 03.04.2019
+[19:55:53] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[19:55:53] Find a diamond!
+[19:55:53] Welcome to Dark Maze!
+[19:56:02] You grabbed a key from the floor.
+[19:56:03] You grabbed a key from the floor.
+[19:56:06] You opened the door.
+[19:56:07] You grabbed a diamond from the floor.
+[19:56:08] You grabbed a diamond from the floor.
+[19:56:09] You can't move here.
+[19:56:13] Select an item to drop. Press C to cancel
+[19:56:13] You dropped a key.
+[19:56:14] Select an item to drop. Press C to cancel
+[19:56:15] You dropped a diamond.
+[19:56:16] Select an item to drop. Press C to cancel
+[19:56:16] You dropped a diamond.
+[19:56:20] You grabbed a key from the floor.
+[19:56:21] You opened a chest.
+[19:56:22] You grabbed an ace of spades from a chest.
+[19:56:23] Select an item to drop. Press C to cancel
+[19:56:23] You dropped an ace of spades.
+[19:56:31] File closed succesfully!

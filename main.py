@@ -56,6 +56,7 @@ class Log:
 class Inventory:
     content = []
     inv_line = 10  # Inventory starts from this row in console
+    drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
     def add_item(self, obj):
         self.content.append(obj)
@@ -68,18 +69,26 @@ class Inventory:
                 break
         self.draw()
 
+    def drop_item(self, obj_n):
+        place_object(self.content[obj_n], HERO.x_pos, HERO. y_pos)
+        LOG.add_msg(f'You dropped {self.content[obj_n].name_a}.')
+        del self.content[obj_n]
+        self.draw()
+
     def draw(self):
-        print(Fore.LIGHTYELLOW_EX, end='')
         move_cursor_to(self.inv_line, 0)
+        print(Fore.LIGHTYELLOW_EX, end='')
         print('Inventory:')
         clear_line()
         if len(self.content) == 0:
             print('Your backpack is empty')
-        for i in range(len(self.content)):
-            if i+1 != len(self.content):
-                print(self.content[i].name, end=', ')
-            else:
-                print(self.content[i].name + '.')
+        else:
+            for i in range(len(self.content)):
+                print(f'[{self.drop_keys[i]}]', end=' ')
+                if i+1 != len(self.content):
+                    print(self.content[i].name, end=', ')
+                else:
+                    print(self.content[i].name + '.')
         print('-' * 20)
         print(Style.RESET_ALL, end='')
 
@@ -120,24 +129,27 @@ class Hero:
                 INVENTORY.remove_item(Key.id)
                 LOG.add_msg(f'You opened {obj_name}.')
             else:
-                LOG.add_msg(f'You need to find a key to open a {obj_name}.')
+                LOG.add_msg(f'You need to find a key to open {obj_name}.')
         else:
-            LOG.add_msg(f"You can't open a {obj_name}.")
+            LOG.add_msg(f"You can't open {obj_name}.")
 
     def move(self, x, y):
-        if G_STATE.level[x][y].can_walk_on:
-            G_STATE.upd_chars.append((x, y))
-            G_STATE.upd_chars.append((self.x_pos, self.y_pos))
-            place_object(self, x, y)
-            remove_object(self, self.x_pos, self.y_pos)
-            self.x_pos = x
-            self.y_pos = y
-            return True
-        else:
-            try:
-                self.open(x, y)
-            except AttributeError:
-                LOG.add_msg("You can't move here.")
+        try:
+            if G_STATE.level[x][y].can_walk_on:
+                G_STATE.upd_chars.append((x, y))
+                G_STATE.upd_chars.append((self.x_pos, self.y_pos))
+                place_object(self, x, y)
+                remove_object(self, self.x_pos, self.y_pos)
+                self.x_pos = x
+                self.y_pos = y
+                return True
+            else:
+                try:
+                    self.open(x, y)
+                except AttributeError:
+                    LOG.add_msg("You can't move here.")
+        except IndexError:
+            LOG.add_msg("You can't move here.")
 
     def grab(self):
         objects_below = G_STATE.level[self.x_pos][self.y_pos].objects_on
@@ -147,12 +159,27 @@ class Hero:
             obj_name = objects_below[-2].name_a
             remove_object(objects_below[-2], self.x_pos, self.y_pos)
             G_STATE.upd_chars.append((self.x_pos, self.y_pos))
-            LOG.add_msg(f'You grabbed {obj_name} from the {tile_name}.')
+            LOG.add_msg(f'You grabbed {obj_name} from {tile_name}.')
         else:
             LOG.add_msg('There are no items here.')
 
     def drop(self):
-        INVENTORY.remove_item()
+        key_pressed = readkey()
+        try:
+            if key_pressed == 'q':
+                INVENTORY.drop_item(0)
+            elif key_pressed == 'w':
+                INVENTORY.drop_item(1)
+            elif key_pressed == 'e':
+                INVENTORY.drop_item(2)
+            elif key_pressed == 'c':
+                return False
+            else:
+                LOG.add_msg('Select proper item from your inventory.')
+                self.drop()
+        except IndexError:
+            LOG.add_msg('Select proper item from your inventory.')
+            self.drop()
 
 
 # TODO: rework positioning in the file and remove classes from it
@@ -173,10 +200,13 @@ def input_handler():
         HERO.move(HERO.x_pos + 1, HERO.y_pos)
     elif key_pressed == 'd':
         HERO.move(HERO.x_pos, HERO.y_pos + 1)
-    elif key_pressed == 't':
+    elif key_pressed == 'p':
         LOG.add_msg(f'Hero position: ({HERO.x_pos},{HERO.y_pos})')
     elif key_pressed == 'g':
         HERO.grab()
+    elif key_pressed == 't':
+        LOG.add_msg('Select an item to drop. Press C to cancel')
+        HERO.drop()
     elif key_pressed == '\x1b':
         LOG.add_msg('File closed succesfully!')
         log_file.close()
@@ -196,18 +226,20 @@ def main():
     now = datetime.today()
     log_file.write('-------------------------------------\n')
     log_file.write(now.strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
-    # TODO: Not use colorama, rework all calls to it
+    # TODO: Do not use colorama, remove all calls to it
     colorama.init()
     G_STATE.load_level('levels/test_level.txt')
     #data = open('data', 'w')
     #json.dump(G_STATE.level, data)
     place_object(Key(), 2, 2)
     place_object(Diamond(), 1, 4)
+    place_object(Diamond(), 1, 5)
+    place_object(Diamond(), 1, 6)
     place_object(Ace(), 5, 14)
     place_object(Key(), 2, 13)
     place_object(Key(), 4, 14)
     place_object(HERO, HERO.x_pos, HERO.y_pos)
-    LOG.add_msg('WASD for movement, L - look, G - Grab')
+    LOG.add_msg('WASD for movement, L - look, G - grab, T - drop, ESC - exit')
     LOG.add_msg('Find a diamond!')
     LOG.add_msg('Welcome to Dark Maze!')
     hide_cursor()
