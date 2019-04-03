@@ -76,6 +76,7 @@ class Inventory:
         del self.content[obj_n]
         self.draw()
 
+    #TODO: Make inventory screen on the right
     def draw(self):
         move_cursor_to(self.inv_line, 0)
         print(Fore.LIGHTYELLOW_EX, end='')
@@ -165,22 +166,29 @@ class Hero:
             LOG.add_msg('There are no items here.')
 
     def drop(self):
-        key_pressed = readkey()
-        try:
-            if key_pressed == 'q':
-                INVENTORY.drop_item(0)
-            elif key_pressed == 'w':
-                INVENTORY.drop_item(1)
-            elif key_pressed == 'e':
-                INVENTORY.drop_item(2)
-            elif key_pressed == 'c':
-                return False
-            else:
-                LOG.add_msg('Select proper item from your inventory.')
-                self.drop()
-        except IndexError:
-            LOG.add_msg('Select proper item from your inventory.')
-            self.drop()
+        if len(INVENTORY.content) == 0:
+            LOG.add_msg('You have no items in your backpack.')
+            return False
+        LOG.add_msg('Select an item to drop. Press C to cancel')
+        while True:
+            key_pressed = readkey()
+            try:
+                if key_pressed == 'q':
+                    INVENTORY.drop_item(0)
+                    return True
+                elif key_pressed == 'w':
+                    INVENTORY.drop_item(1)
+                    return True
+                elif key_pressed == 'e':
+                    INVENTORY.drop_item(2)
+                    return True
+                elif key_pressed == 'c':
+                    LOG.add_msg('You changed your mind on dropping something.')
+                    return False
+                else:
+                    LOG.add_msg('Select a proper item in your backpack.')
+            except IndexError:
+                LOG.add_msg('Select a proper item in your backpack.')
 
 
 # TODO: rework positioning in the file and remove classes from it
@@ -206,7 +214,6 @@ def input_handler():
     elif key_pressed == 'g':
         HERO.grab()
     elif key_pressed == 't':
-        LOG.add_msg('Select an item to drop. Press C to cancel')
         HERO.drop()
     elif key_pressed == '\x1b':
         LOG.add_msg('File closed succesfully!')
@@ -234,8 +241,8 @@ def main():
     #json.dump(G_STATE.level, data)
     place_object(Key(), 2, 2)
     place_object(Diamond(), 1, 4)
+    place_object(Key(), 5, 14)
     place_object(Ace(), 5, 14)
-    place_object(Key(), 2, 13)
     place_object(Key(), 4, 14)
     place_object(HERO, HERO.x_pos, HERO.y_pos)
     LOG.add_msg('WASD for movement, L - look, G - grab, T - drop, ESC - exit')

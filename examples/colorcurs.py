@@ -1,9 +1,9 @@
 #import colorama
 #from colorama import Fore, Back, Style
-import ctypes
+#import ctypes
 
-kernel32 = ctypes.windll.kernel32
-kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+#kernel32 = ctypes.windll.kernel32
+#kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 
 def pos(x, y):
