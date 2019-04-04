@@ -935,347 +935,408 @@ Game session at 19:55:53 on 03.04.2019
 [19:56:23] You dropped an ace of spades.
 [19:56:31] File closed succesfully!
 -------------------------------------
-Game session at 22:30:58 on 03.04.2019
-[22:30:58] WASD for movement, L - look, G - grab, T - drop, ESC - exit
-[22:30:58] Find a diamond!
-[22:30:58] Welcome to Dark Maze!
-[22:31:03] You can't move here.
-[22:31:04] You can't move here.
-[22:31:04] You can't move here.
-[22:31:05] You need to find a key to open a chest.
-[22:31:08] You need to find a key to open a chest.
-[22:31:08] You need to find a key to open a chest.
-[22:31:08] You need to find a key to open a chest.
-[22:31:12] You grabbed a key from the floor.
-[22:31:14] You opened a chest.
-[22:31:16] You grabbed an ace of spades from a chest.
-[22:31:18] You grabbed a key from the floor.
-[22:31:20] You can't move here.
-[22:31:21] You opened the door.
-[22:31:23] You grabbed a key from the floor.
-[22:31:25] You opened a chest.
-[22:31:27] You see a beautiful diamond. It shines brightly in the dark.
-[22:31:27] You grabbed a diamond from a chest.
-[22:31:31] Select an item to drop. Press C to cancel
-[22:31:32] You dropped a diamond.
-[22:31:35] You grabbed a diamond from the floor.
-[22:31:36] You can't move here.
-[22:31:37] You can't move here.
-[22:31:39] You can't move here.
-[22:31:40] You can't move here.
-[22:31:42] You see steps leading down to the darkness. You feel a cold air blowing from there.
-[22:31:43] You see steps leading down to the darkness. You feel a cold air blowing from there.
-[22:31:43] You see steps leading down to the darkness. You feel a cold air blowing from there.
-[22:31:43] You see steps leading down to the darkness. You feel a cold air blowing from there.
-[22:31:44] There are no items here.
-[22:31:45] There are no items here.
-[22:31:45] Select an item to drop. Press C to cancel
-[22:31:52] Select an item to drop. Press C to cancel
-[22:31:53] You dropped an ace of spades.
-[22:31:54] Select an item to drop. Press C to cancel
-[22:31:55] You dropped a diamond.
-[22:31:57] You see a beautiful diamond. It shines brightly in the dark.
-[22:31:58] You grabbed a diamond from the stairs.
-[22:32:01] You grabbed an ace of spades from the stairs.
-[22:38:47] You can't move here.
-[22:38:49] You can't move here.
-[22:38:49] You can't move here.
-[22:38:49] You can't move here.
-[22:38:52] You can't move here.
-[22:38:52] You can't move here.
-[22:38:53] There are no items here.
-[22:38:54] You see a crude chest with iron frame. It has a keyhole.
-[22:38:56] You can't move here.
-[22:38:57] You can't move here.
-[22:38:58] You can't move here.
-[22:38:59] You can't move here.
-[22:38:59] You can't move here.
-[22:38:59] You can't move here.
-[22:38:59] You can't move here.
-[22:39:33] File closed succesfully!
+Game session at 13:16:39 on 04.04.2019
+[13:16:39] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[13:16:39] Find a diamond!
+[13:16:39] Welcome to Dark Maze!
+[13:16:54] You can't move here.
+[13:16:54] You can't move here.
+[13:16:55] You can't move here.
+[13:16:55] You can't move here.
+[13:16:55] You can't move here.
+[13:16:55] You can't move here.
+[13:16:55] You can't move here.
+[13:17:01] You grabbed a key from the floor.
+[13:17:02] You grabbed a key from the floor.
+[13:17:03] You opened a chest.
+[13:17:03] You grabbed an ace of spades from a chest.
+[13:17:05] You can't move here.
+[13:17:06] You can't move here.
+[13:17:06] You opened the door.
+[13:17:07] You grabbed a diamond from the floor.
+[13:17:08] You grabbed a diamond from the floor.
+[13:17:10] You grabbed a key from the floor.
+[13:17:11] You opened a chest.
+[13:17:11] You can't move here.
+[13:17:13] You grabbed a diamond from a chest.
+[13:17:15] You can't move here.
+[13:17:26] Select an item to drop. Press C to cancel
+[13:17:26] You dropped an ace of spades.
+[13:17:28] Select an item to drop. Press C to cancel
+[13:17:29] You dropped a diamond.
+[13:17:30] Select an item to drop. Press C to cancel
+[13:17:31] You dropped a diamond.
+[13:17:34] Select an item to drop. Press C to cancel
+[13:17:34] You dropped a diamond.
+[13:17:38] You grabbed a diamond from the floor.
+[13:17:40] You grabbed an ace of spades from the floor.
+[13:17:41] You grabbed a diamond from the floor.
+[13:17:42] You grabbed a diamond from the floor.
+[13:17:50] Select an item to drop. Press C to cancel
+[13:17:54] Select an item to drop. Press C to cancel
+[13:17:54] You dropped a diamond.
+[13:17:55] Select an item to drop. Press C to cancel
+[13:17:55] You dropped an ace of spades.
+[13:17:56] Select an item to drop. Press C to cancel
+[13:17:56] You dropped a diamond.
+[13:17:56] Select an item to drop. Press C to cancel
+[13:17:57] You dropped a diamond.
+[13:18:01] You grabbed a diamond from the floor.
+[13:18:01] You grabbed a diamond from the floor.
+[13:18:01] You grabbed an ace of spades from the floor.
+[13:18:02] You grabbed a diamond from the floor.
+[13:18:02] There are no items here.
+[13:18:02] There are no items here.
+[13:18:02] There are no items here.
+[13:18:13] Select an item to drop. Press C to cancel
+[13:18:14] You dropped a diamond.
+[13:18:21] You grabbed a diamond from a chest.
+[13:18:26] You can't move here.
+[13:18:27] You can't move here.
+[13:18:27] You can't move here.
+[13:18:30] Select an item to drop. Press C to cancel
+[13:18:31] You dropped a diamond.
+[13:18:31] You can't move here.
+[13:18:38] You grabbed a diamond from the stairs.
+[13:18:53] You can't move here.
+[13:18:55] You can't move here.
+[13:18:57] Select an item to drop. Press C to cancel
+[13:18:57] You dropped an ace of spades.
+[13:18:59] Select an item to drop. Press C to cancel
+[13:19:00] You dropped a diamond.
+[13:19:00] Select an item to drop. Press C to cancel
+[13:19:00] You dropped a diamond.
+[13:19:01] Select an item to drop. Press C to cancel
+[13:19:01] You dropped a diamond.
+[13:19:05] You grabbed a diamond from a chest.
+[13:19:06] You grabbed a diamond from a chest.
+[13:19:06] You grabbed a diamond from a chest.
+[13:19:07] You grabbed an ace of spades from a chest.
+[13:19:07] There are no items here.
+[13:19:08] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:11] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:12] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:13] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:14] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:15] You can't move here.
+[13:19:16] Select an item to drop. Press C to cancel
+[13:19:17] You dropped a diamond.
+[13:19:18] Select an item to drop. Press C to cancel
+[13:19:18] You dropped a diamond.
+[13:19:18] Select an item to drop. Press C to cancel
+[13:19:19] You dropped a diamond.
+[13:19:19] Select an item to drop. Press C to cancel
+[13:19:19] You dropped an ace of spades.
+[13:19:21] You grabbed an ace of spades from the floor.
+[13:19:21] You grabbed a diamond from the floor.
+[13:19:21] You grabbed a diamond from the floor.
 -------------------------------------
-Game session at 22:41:45 on 03.04.2019
-[22:41:45] WASD for movement, L - look, G - grab, T - drop, ESC - exit
-[22:41:45] Find a diamond!
-[22:41:45] Welcome to Dark Maze!
-[22:41:50] You grabbed a key from the floor.
-[22:41:51] You can't move here.
-[22:41:51] You can't move here.
-[22:41:52] You opened the door.
-[22:41:52] You can't move here.
-[22:41:54] You grabbed a key from the floor.
-[22:41:54] You opened a chest.
-[22:41:55] You grabbed a diamond from a chest.
-[22:41:57] You can't move here.
-[22:41:57] You can't move here.
-[22:41:58] You can't move here.
-[22:41:59] You need to find a key to open a chest.
-[22:41:59] You need to find a key to open a chest.
-[22:41:59] You need to find a key to open a chest.
-[22:41:59] You need to find a key to open a chest.
-[22:42:00] You need to find a key to open a chest.
-[22:42:02] You see a rough stone floor. It is dark and cold.
-[22:42:04] Select an item to drop. Press C to cancel
-[22:42:06] You dropped a diamond.
-[22:42:09] You grabbed a diamond from the floor.
-[22:42:12] There are no items here.
-[22:42:14] You need to find a key to open a chest.
-[22:42:18] Select an item to drop. Press C to cancel
-[22:42:18] You dropped a diamond.
-[22:42:20] You grabbed a diamond from the floor.
-[22:42:23] Select an item to drop. Press C to cancel
-[22:42:24] You dropped a diamond.
-[22:42:31] You grabbed a diamond from the floor.
-[22:42:32] You need to find a key to open a chest.
-[22:42:33] You need to find a key to open a chest.
-[22:42:34] You need to find a key to open a chest.
-[22:42:36] File closed succesfully!
+Game session at 14:41:17 on 04.04.2019
+[14:41:17] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[14:41:17] Find a diamond!
+[14:41:17] Welcome to Dark Maze!
+[14:41:20] You grabbed a key from the floor.
+[14:41:21] You grabbed a key from the floor.
+[14:41:22] You opened a chest.
+[14:41:27] You grabbed an ace of spades from a chest.
+[14:41:28] You can't move here.
+[14:41:29] You can't move here.
+[14:41:29] You opened the door.
+[14:41:31] You see a beautiful diamond. It shines brightly in the dark.
+[14:41:34] You grabbed a diamond from the floor.
+[14:41:34] You see a beautiful diamond. It shines brightly in the dark.
+[14:41:35] You grabbed a diamond from the floor.
+[14:41:36] You need to find a key to open a chest.
+[14:41:37] You need to find a key to open a chest.
+[14:41:37] You need to find a key to open a chest.
+[14:41:40] You grabbed a key from the floor.
+[14:41:40] You opened a chest.
+[14:41:41] You see a beautiful diamond. It shines brightly in the dark.
+[14:41:42] You grabbed a diamond from a chest.
+[14:41:44] You can't move here.
+[14:41:45] Select an item to drop. Press C to cancel
+[14:41:45] You dropped an ace of spades.
+[14:41:46] Select an item to drop. Press C to cancel
+[14:41:46] You dropped a diamond.
+[14:41:47] Select an item to drop. Press C to cancel
+[14:41:47] You dropped a diamond.
+[14:41:48] Select an item to drop. Press C to cancel
+[14:41:48] You dropped a diamond.
+[14:41:49] You can't move here.
+[14:41:49] You can't move here.
+[14:41:49] You can't move here.
+[14:41:49] You can't move here.
+[14:41:51] You grabbed a diamond from the floor.
+[14:41:52] You grabbed a diamond from the floor.
+[14:41:52] You grabbed a diamond from the floor.
+[14:41:55] File closed succesfully!
 -------------------------------------
-Game session at 23:16:20 on 03.04.2019
-[23:16:20] WASD for movement, L - look, G - grab, T - drop, ESC - exit
-[23:16:20] Find a diamond!
-[23:16:20] Welcome to Dark Maze!
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:33] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:34] You can't move here.
-[23:16:35] You can't move here.
-[23:16:35] You can't move here.
-[23:16:35] You can't move here.
-[23:16:35] You can't move here.
-[23:16:35] You can't move here.
-[23:16:36] You can't move here.
-[23:16:37] You can't move here.
-[23:16:37] You can't move here.
-[23:16:37] You can't move here.
-[23:16:37] You can't move here.
-[23:16:37] You can't move here.
-[23:16:38] You can't move here.
-[23:16:38] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:39] You can't move here.
-[23:16:40] You can't move here.
-[23:16:41] You need to find a key to open a chest.
-[23:16:41] You need to find a key to open a chest.
-[23:16:45] You grabbed a key from the floor.
-[23:16:46] You opened a chest.
-[23:16:46] You grabbed an ace of spades from a chest.
-[23:16:47] You grabbed a key from a chest.
-[23:16:48] You can't move here.
-[23:16:48] You can't move here.
-[23:16:49] You can't move here.
-[23:16:50] You can't move here.
-[23:16:50] You can't move here.
-[23:16:50] You opened the door.
-[23:16:50] You can't move here.
-[23:16:50] You can't move here.
-[23:16:52] You grabbed a key from the floor.
-[23:16:54] You opened a chest.
-[23:16:54] You grabbed a diamond from a chest.
-[23:16:55] You can't move here.
-[23:16:55] You can't move here.
-[23:16:55] You can't move here.
-[23:16:56] You can't move here.
-[23:16:56] You can't move here.
-[23:16:56] You can't move here.
-[23:16:56] You can't move here.
-[23:16:56] You can't move here.
-[23:16:56] You can't move here.
-[23:16:56] You can't move here.
-[23:16:57] You can't move here.
-[23:16:57] You can't move here.
-[23:16:57] You can't move here.
-[23:16:57] You can't move here.
-[23:16:58] You can't move here.
-[23:16:58] You can't move here.
-[23:16:59] You can't move here.
-[23:16:59] You can't move here.
-[23:17:00] You can't move here.
-[23:17:00] You can't move here.
-[23:17:02] You can't move here.
-[23:17:02] You can't move here.
-[23:17:02] You can't move here.
-[23:17:02] You can't move here.
-[23:17:02] You can't move here.
-[23:17:02] You can't move here.
-[23:17:02] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:03] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:04] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:05] You can't move here.
-[23:17:06] You can't move here.
-[23:17:06] You can't move here.
-[23:17:06] You can't move here.
-[23:17:06] You can't move here.
-[23:17:07] You can't move here.
-[23:17:07] You can't move here.
-[23:17:07] You can't move here.
-[23:17:08] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:09] You can't move here.
-[23:17:10] You can't move here.
-[23:17:10] You can't move here.
-[23:17:10] You can't move here.
-[23:17:10] You can't move here.
-[23:17:11] You can't move here.
-[23:17:12] You can't move here.
-[23:17:13] You can't move here.
-[23:17:13] You can't move here.
-[23:17:14] You can't move here.
-[23:17:14] You can't move here.
-[23:17:15] You can't move here.
-[23:17:15] You can't move here.
-[23:17:16] You can't move here.
-[23:17:16] You can't move here.
-[23:17:16] You can't move here.
-[23:17:16] You can't move here.
-[23:17:18] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:19] You can't move here.
-[23:17:20] You can't move here.
-[23:17:20] You can't move here.
-[23:17:21] You can't move here.
-[23:17:21] You can't move here.
-[23:17:21] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:22] You can't move here.
-[23:17:23] You can't move here.
-[23:17:23] You can't move here.
-[23:17:23] You can't move here.
-[23:17:23] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:24] You can't move here.
-[23:17:25] You can't move here.
-[23:17:25] You can't move here.
-[23:17:27] You can't move here.
-[23:17:27] You can't move here.
-[23:17:29] You can't move here.
-[23:17:29] You can't move here.
-[23:17:29] You can't move here.
-[23:17:29] You can't move here.
-[23:17:29] You can't move here.
-[23:17:29] You can't move here.
-[23:17:29] You can't move here.
-[23:17:30] You can't move here.
-[23:17:30] You can't move here.
-[23:17:30] You can't move here.
-[23:17:31] You can't move here.
-[23:17:31] You can't move here.
-[23:17:31] You can't move here.
-[23:17:32] You can't move here.
-[23:17:32] You can't move here.
-[23:17:32] You can't move here.
-[23:17:33] You can't move here.
-[23:17:33] You can't move here.
-[23:17:34] You can't move here.
-[23:17:39] Select an item to drop. Press C to cancel
-[23:17:39] Select proper item from your inventory.
-[23:17:40] Select proper item from your inventory.
-[23:17:40] Select proper item from your inventory.
-[23:17:40] Select proper item from your inventory.
-[23:17:40] Select proper item from your inventory.
-[23:17:45] Select proper item from your inventory.
-[23:17:46] Select proper item from your inventory.
-[23:17:46] Select proper item from your inventory.
-[23:17:46] Select proper item from your inventory.
+Game session at 14:47:57 on 04.04.2019
+[14:47:57] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[14:47:57] Find a diamond!
+[14:47:57] Welcome to Dark Maze!
+[14:48:00] You grabbed a key from the floor.
+[14:48:01] There are no items here.
+[14:48:02] You grabbed a key from the floor.
+[14:48:02] You opened a chest.
+[14:48:03] You grabbed an ace of spades from a chest.
+[14:48:06] Select an item to drop. Press C to cancel
+[14:48:08] You dropped a key.
+[14:48:09] Select an item to drop. Press C to cancel
+[14:48:09] Select proper item from your inventory.
+[14:48:09] Select proper item from your inventory.
+[14:48:09] Select proper item from your inventory.
+[14:48:09] Select proper item from your inventory.
+[14:48:10] Select proper item from your inventory.
+[14:48:10] Select proper item from your inventory.
+[14:48:10] Select proper item from your inventory.
+[14:48:11] Select proper item from your inventory.
+[14:48:11] Select proper item from your inventory.
+[14:48:11] Select proper item from your inventory.
+[14:48:11] Select proper item from your inventory.
+[14:48:11] Select proper item from your inventory.
+[14:48:11] Select proper item from your inventory.
+[14:48:12] You dropped an ace of spades.
+[14:48:14] You grabbed an ace of spades from a chest.
+[14:48:14] Select an item to drop. Press C to cancel
+[14:48:15] You dropped an ace of spades.
 -------------------------------------
-Game session at 23:18:18 on 03.04.2019
-[23:18:18] WASD for movement, L - look, G - grab, T - drop, ESC - exit
-[23:18:18] Find a diamond!
-[23:18:18] Welcome to Dark Maze!
+Game session at 14:49:26 on 04.04.2019
+[14:49:26] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[14:49:26] Find a diamond!
+[14:49:26] Welcome to Dark Maze!
+[14:49:30] You grabbed a key from the floor.
+[14:49:31] You opened a chest.
+[14:49:31] You grabbed an ace of spades from a chest.
+[14:49:32] There are no items here.
+[14:49:32] There are no items here.
+[14:49:33] Select an item to drop. Press C to cancel
+[14:49:34] You dropped an ace of spades.
 -------------------------------------
-Game session at 23:44:13 on 03.04.2019
-[23:44:13] WASD for movement, L - look, G - grab, T - drop, ESC - exit
-[23:44:13] Find a diamond!
-[23:44:13] Welcome to Dark Maze!
+Game session at 14:49:52 on 04.04.2019
+[14:49:52] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[14:49:52] Find a diamond!
+[14:49:52] Welcome to Dark Maze!
+[14:49:56] You grabbed a key from the floor.
+[14:49:57] Select an item to drop. Press C to cancel
+[14:49:58] You dropped a key.
+[14:50:01] You grabbed a key from the floor.
+[14:50:01] Select an item to drop. Press C to cancel
+[14:50:01] You dropped a key.
+-------------------------------------
+Game session at 16:52:18 on 04.04.2019
+[16:52:18] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[16:52:18] Find a diamond!
+[16:52:18] Welcome to Dark Maze!
+[16:52:23] You grabbed a key from the floor.
+[16:52:23] You opened a chest.
+[16:52:24] You grabbed an ace of spades from a chest.
+[16:52:25] You can't move here.
+[16:52:26] You can't move here.
+[16:52:27] You need to find a key to open the door.
+[16:52:27] You need to find a key to open the door.
+[16:52:28] You need to find a key to open the door.
+[16:52:31] You grabbed a key from a chest.
+[16:52:32] You can't move here.
+[16:52:34] You opened the door.
+[16:52:35] You grabbed a key from the floor.
+[16:52:36] You opened a chest.
+[16:52:36] You grabbed a diamond from a chest.
+[16:52:38] You can't move here.
+[16:52:40] Select an item to drop. Press C to cancel
+[16:52:40] You dropped an ace of spades.
+[16:52:41] Select an item to drop. Press C to cancel
+[16:52:41] You dropped a diamond.
+[16:52:42] You grabbed an ace of spades from the floor.
+-------------------------------------
+Game session at 16:52:57 on 04.04.2019
+[16:52:57] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[16:52:57] Find a diamond!
+[16:52:57] Welcome to Dark Maze!
+[16:53:00] You grabbed a key from the floor.
+[16:53:02] Select an item to drop. Press C to cancel
+[16:53:02] You dropped a key.
+-------------------------------------
+Game session at 17:16:04 on 04.04.2019
+[17:16:04] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[17:16:04] Find a diamond!
+[17:16:04] Welcome to Dark Maze!
+[17:16:09] You grabbed a key from the floor.
+[17:16:10] Select an item to drop. Press C to cancel
+[17:16:11] You dropped a key.
+-------------------------------------
+Game session at 17:17:43 on 04.04.2019
+[17:17:43] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[17:17:43] Find a diamond!
+[17:17:43] Welcome to Dark Maze!
+[17:17:46] You grabbed a key from the floor.
+[17:17:46] Select an item to drop. Press C to cancel
+[17:17:46] You dropped a key.
+[17:17:47] You grabbed a hero from the floor.
+[17:17:50] Select an item to drop. Press C to cancel
+[17:17:50] You dropped a hero.
+[17:17:56] You grabbed a key from the floor.
+[17:17:59] Select an item to drop. Press C to cancel
+[17:17:59] You dropped a key.
+[17:18:00] You grabbed a hero from the floor.
+[17:18:02] There are no items here.
+[17:18:04] There are no items here.
+[17:18:04] There are no items here.
+[17:18:04] There are no items here.
+[17:18:07] Select an item to drop. Press C to cancel
+[17:18:07] You dropped a hero.
+[17:18:12] You need to find a key to open a chest.
+[17:18:17] You have no items in your backpack.
+[17:18:19] You have no items in your backpack.
+[17:18:22] You grabbed a key from the floor.
+[17:18:23] Select an item to drop. Press C to cancel
+[17:18:30] You dropped a key.
+[17:18:31] You grabbed a hero from the floor.
+-------------------------------------
+Game session at 19:28:42 on 04.04.2019
+[19:28:42] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[19:28:42] Find a diamond!
+[19:28:42] Welcome to Dark Maze!
+-------------------------------------
+Game session at 19:28:53 on 04.04.2019
+[19:28:53] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[19:28:53] Find a diamond!
+[19:28:53] Welcome to Dark Maze!
+-------------------------------------
+Game session at 19:29:04 on 04.04.2019
+[19:29:04] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[19:29:04] Find a diamond!
+[19:29:04] Welcome to Dark Maze!
+[19:29:06] There are no items here.
+[19:29:06] There are no items here.
+[19:29:06] There are no items here.
+-------------------------------------
+Game session at 19:56:16 on 04.04.2019
+[19:56:16] WASD for movement, L - look, G - grab, T - drop, ESC - exit
+[19:56:16] Find a diamond!
+[19:56:16] Welcome to Dark Maze!

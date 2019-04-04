@@ -115,4 +115,3 @@ class Chest(TileObject):
         self.can_walk_on = False
         self.tile_char = self.closed_tile_char
         self.objects_hidden = True
-

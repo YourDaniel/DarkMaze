@@ -114,6 +114,7 @@ def lower_letter(obj):
 
 
 class Hero:
+    id = 0
     tile_char = '☻'
 
     def __init__(self, x_position, y_position, name):
@@ -156,12 +157,15 @@ class Hero:
     def grab(self):
         objects_below = G_STATE.level[self.x_pos][self.y_pos].objects_on
         tile_name = G_STATE.level[self.x_pos][self.y_pos].name_a
-        if len(objects_below) > 1:                 # One object on the ground is always a hero
-            INVENTORY.add_item(objects_below[-2])  # Since hero is always standing at -1 we grab -2
-            obj_name = objects_below[-2].name_a
-            remove_object(objects_below[-2], self.x_pos, self.y_pos)
-            G_STATE.upd_chars.append((self.x_pos, self.y_pos))
-            LOG.add_msg(f'You grabbed {obj_name} from {tile_name}.')
+        for i in range(len(objects_below)-1, -1, -1):
+            # Check if picked item is not a Hero since he has id = 0
+            if objects_below[i].id != 0:  # TODO: Fix this dirty hack
+                INVENTORY.add_item(objects_below[i])
+                obj_name = objects_below[i].name_a
+                remove_object(objects_below[i], self.x_pos, self.y_pos)
+                G_STATE.upd_chars.append((self.x_pos, self.y_pos))
+                LOG.add_msg(f'You grabbed {obj_name} from {tile_name}.')
+                break
         else:
             LOG.add_msg('There are no items here.')
 
