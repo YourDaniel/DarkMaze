@@ -12,6 +12,7 @@ import json
 kernel32 = ctypes.windll.kernel32
 kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 log_file = open('logs.txt', 'a')
+G_STATE = GameState()
 
 
 class Log:
@@ -56,7 +57,8 @@ class Log:
 
 class Inventory:
     content = []
-    inv_line = 10  # Inventory starts from this row in console
+    inv_line = 0  # Inventory starts from this row in console
+    inv_row = 21
     drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
     def add_item(self, obj):
@@ -78,9 +80,10 @@ class Inventory:
 
     #TODO: Make inventory screen on the right
     def draw(self):
-        move_cursor_to(self.inv_line, 0)
+        move_cursor_to(self.inv_line, self.inv_row)
         print(Fore.LIGHTYELLOW_EX, end='')
         print('Inventory:')
+        move_cursor_to(1, 21)
         clear_line()
         if len(self.content) == 0:
             print('Your backpack is empty')
@@ -91,7 +94,7 @@ class Inventory:
                     print(self.content[i].name, end=', ')
                 else:
                     print(self.content[i].name + '.')
-        print('-' * 20)
+        #print('-' * 20)
         print(Style.RESET_ALL, end='')
 
     def item_inside(self, obj):
@@ -159,7 +162,8 @@ class Hero:
         tile_name = G_STATE.level[self.x_pos][self.y_pos].name_a
         for i in range(len(objects_below)-1, -1, -1):
             # Check if picked item is not a Hero since he has id = 0
-            if objects_below[i].id != 0:  # TODO: Fix this dirty hack
+            # TODO: Fix this dirty hack
+            if objects_below[i].id != 0:
                 INVENTORY.add_item(objects_below[i])
                 obj_name = objects_below[i].name_a
                 remove_object(objects_below[i], self.x_pos, self.y_pos)
@@ -195,8 +199,8 @@ class Hero:
                 LOG.add_msg('Select a proper item in your backpack.')
 
 
-# TODO: rework positioning in the file and remove classes from it
-G_STATE = GameState()
+# TODO: Rework positioning in the file and remove classes from it
+
 LOG = Log(log_len=10, timestamps=False)
 HERO = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
 INVENTORY = Inventory()

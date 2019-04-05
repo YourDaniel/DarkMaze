@@ -1,6 +1,6 @@
 # from tile_classes import TileObject
 from tileset import tile_set
-# TODO: implement IDs. To distinguish different items
+# TODO: implement IDs to distinguish different items
 
 
 class ItemObject:
