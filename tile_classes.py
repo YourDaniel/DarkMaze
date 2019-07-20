@@ -91,7 +91,7 @@ class StairsDown(TileObject):
 class Chest(TileObject):
     name = 'Chest'
     name_a = 'a chest'
-    tile_char = '■'
+    tile_char = tile_set['chest']['custom_tile']
     bottom_tile_char = '∟'
 
     def __init__(self, x, y):

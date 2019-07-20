@@ -1,64 +1,39 @@
 from readchar import readkey
 import colorama
 from colorama import Fore, Back, Style
-import tile_classes
-from item_classes import Key, Diamond, Ace
-from gamestate import GameState
-from ansi_wraps import *
 from datetime import datetime
 import ctypes
 import json
 
+from gamestate import GameState
+from log import Log
+from item_classes import *
+from tile_classes import *
+from ansi_wraps import *
+
 kernel32 = ctypes.windll.kernel32
 kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-log_file = open('logs.txt', 'a')
+
 G_STATE = GameState()
+G_STATE.load_level('levels/test_big_level.txt')
 
 
-class Log:
-    messages = []
-    log_line = 13  # Log starts from this row in a terminal window
+def place_object(obj, x, y):
+    G_STATE.level[x][y].add_object(obj)
 
-    def __init__(self, log_len, timestamps):
-        self.log_len = log_len
-        self.timestamps_on = timestamps
 
-    def add_msg(self, msg):
-        timestamp = datetime.today().strftime("[%H:%M:%S] ")
-        log_file.write(timestamp + msg + '\n')
-        if len(self.messages) > 0 and self.messages[0][0] == msg:
-            self.messages[0][1] += 1
-        else:
-            if self.timestamps_on:
-                block = [timestamp + msg, 1]  # 2nd value - number of same msg
-            else:
-                block = [msg, 1]
-            self.messages.insert(0, block)
-        if len(self.messages) > self.log_len:  # Cutting log to max size
-            self.messages = self.messages[:self.log_len]
-        self.draw()
+def remove_object(obj, x, y):
+    G_STATE.level[x][y].delete_object(obj)
 
-    # TODO: Make messages of different colors (warnings, battle, common etc.) and highlight items
-    def draw(self):
-        print(Fore.LIGHTBLUE_EX, end='')
-        # First, set cursor to a start of line where Log should be drawn with ESC sequence
-        move_cursor_to(self.log_line, 0)
-        for i in range(len(self.messages)):
-            msg_text = self.messages[i][0]
-            msg_count = self.messages[i][1]
-            # Then clear old message to print out a new one
-            clear_line()
-            if msg_count > 1:
-                print(f'{msg_text} x {msg_count}')
-            else:
-                print(msg_text)
-        print(Style.RESET_ALL, end='')
+
+def lower_letter(obj):
+        return obj.name[:1].lower() + obj.name[1:]
 
 
 class Inventory:
     content = []
-    inv_line = 0  # Inventory starts from this row in console
-    inv_row = 21
+    inv_line = 0                         # Inventory starts from top of the window
+    inv_row = len(G_STATE.level[0]) + 1  # Inventory as far to the right as width of the map + border
     drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
     def add_item(self, obj):
@@ -78,42 +53,33 @@ class Inventory:
         del self.content[obj_n]
         self.draw()
 
-    #TODO: Make inventory screen on the right
+    # TODO: Move inventory screen on the right side
     def draw(self):
-        move_cursor_to(self.inv_line, self.inv_row)
         print(Fore.LIGHTYELLOW_EX, end='')
+        move_cursor_to(self.inv_line, self.inv_row)
         print('Inventory:')
-        move_cursor_to(1, 21)
-        clear_line()
+        self.clear_lines()
+        move_cursor_to(self.inv_line + 1, self.inv_row)
         if len(self.content) == 0:
             print('Your backpack is empty')
         else:
             for i in range(len(self.content)):
+                move_cursor_to(self.inv_line + 1 + i, self.inv_row)
+                clear_line()
                 print(f'[{self.drop_keys[i]}]', end=' ')
-                if i+1 != len(self.content):
-                    print(self.content[i].name, end=', ')
-                else:
-                    print(self.content[i].name + '.')
-        #print('-' * 20)
+                print(self.content[i].name, end='')
         print(Style.RESET_ALL, end='')
+
+    def clear_lines(self):
+        for i in range(len(self.drop_keys)):
+            move_cursor_to(self.inv_line + 1 + i, self.inv_row)
+            clear_line()
 
     def item_inside(self, obj):
         if any(isinstance(i, obj) for i in self.content):
             return True
         else:
             return False
-
-
-def place_object(obj, x, y):
-    G_STATE.level[x][y].add_object(obj)
-
-
-def remove_object(obj, x, y):
-    G_STATE.level[x][y].delete_object(obj)
-
-
-def lower_letter(obj):
-        return obj.name[:1].lower() + obj.name[1:]
 
 
 class Hero:
@@ -190,6 +156,33 @@ class Hero:
                 elif key_pressed == 'e':
                     INVENTORY.drop_item(2)
                     return True
+                elif key_pressed == 'r':
+                    INVENTORY.drop_item(3)
+                    return True
+                elif key_pressed == 't':
+                    INVENTORY.drop_item(4)
+                    return True
+                elif key_pressed == 'y':
+                    INVENTORY.drop_item(5)
+                    return True
+                elif key_pressed == 'a':
+                    INVENTORY.drop_item(6)
+                    return True
+                elif key_pressed == 's':
+                    INVENTORY.drop_item(7)
+                    return True
+                elif key_pressed == 'd':
+                    INVENTORY.drop_item(8)
+                    return True
+                elif key_pressed == 'f':
+                    INVENTORY.drop_item(9)
+                    return True
+                elif key_pressed == 'g':
+                    INVENTORY.drop_item(10)
+                    return True
+                elif key_pressed == 'h':
+                    INVENTORY.drop_item(11)
+                    return True
                 elif key_pressed == 'c':
                     LOG.add_msg('You changed your mind on dropping something.')
                     return False
@@ -201,8 +194,8 @@ class Hero:
 
 # TODO: Rework positioning in the file and remove classes from it
 
-LOG = Log(log_len=10, timestamps=False)
-HERO = Hero(2, 16, 'Daniel')  # Test coordinates for 1 lvl
+LOG = Log(log_len=10, timestamps=False, log_to_file=False, filename='logs.txt', log_line=len(G_STATE.level))
+HERO = Hero(2, 53, 'Daniel')  # Test coordinates for 1 lvl
 INVENTORY = Inventory()
 
 
@@ -224,9 +217,8 @@ def input_handler():
     elif key_pressed == 't':
         HERO.drop()
     elif key_pressed == '\x1b':
-        LOG.add_msg('File closed succesfully!')
-        log_file.close()
-        close_terminal()
+        LOG.add_msg('Exiting the game...')
+        return True
     elif key_pressed == 'l':  # Look
         objects_below = G_STATE.level[HERO.x_pos][HERO.y_pos].objects_on
         tile_below = G_STATE.level[HERO.x_pos][HERO.y_pos]
@@ -239,31 +231,54 @@ def input_handler():
 
 
 def main():
-    now = datetime.today()
-    log_file.write('-------------------------------------\n')
-    log_file.write(now.strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
+    # TODO: Move this functionality to Log class
+    if LOG.log_to_file:
+        now = datetime.today()
+        log_file = open('logs.txt', 'a')
+        log_file.write('-------------------------------------\n')
+        log_file.write(now.strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
     # TODO: Do not use colorama, remove all calls to it
     colorama.init()
-    G_STATE.load_level('levels/test_level.txt')
     #data = open('data', 'w')
     #json.dump(G_STATE.level, data)
+    '''
     place_object(Key(), 2, 2)
     place_object(Diamond(), 1, 4)
     place_object(Key(), 5, 14)
     place_object(Ace(), 5, 14)
+    place_object(Ace(), 5, 15)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
+    place_object(Diamond(), 5, 16)
     place_object(Key(), 4, 14)
+    '''
+    place_object(Diamond(), 2, 6)
+    place_object(Diamond(), 2, 6)
+    place_object(Diamond(), 2, 6)
+    place_object(Key(), 9, 47)
+    place_object(Key(), 9, 48)
+    place_object(Ace(), 16, 40)
+    place_object(Key(), 16, 40)
+    place_object(Key(), 15, 47)
+    place_object(Key(), 16, 53)
     place_object(HERO, HERO.x_pos, HERO.y_pos)
     LOG.add_msg('WASD for movement, L - look, G - grab, T - drop, ESC - exit')
-    LOG.add_msg('Find a diamond!')
+    #LOG.add_msg('Find a diamond!')
     LOG.add_msg('Welcome to Dark Maze!')
     hide_cursor()
     G_STATE.draw_level()
     INVENTORY.draw()
     LOG.draw()
     while True:
-        input_handler()
+        if input_handler():
+            break
         G_STATE.update_scr()
-    LOG.add_msg('You can rest now, hero...')
+    close_terminal()
     colorama.deinit()
 
 
