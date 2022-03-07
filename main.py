@@ -16,7 +16,7 @@ kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 G_STATE = GameState()
 G_STATE.load_level('levels/test_big_level.txt')
-
+drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
 def place_object(obj, x, y):
     G_STATE.level[x][y].add_object(obj)
@@ -34,7 +34,7 @@ class Inventory:
     content = []
     inv_line = 0                         # Inventory starts from top of the window
     inv_row = len(G_STATE.level[0]) + 1  # Inventory as far to the right as width of the map + border
-    drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
+
 
     def add_item(self, obj):
         self.content.append(obj)
@@ -66,12 +66,12 @@ class Inventory:
             for i in range(len(self.content)):
                 move_cursor_to(self.inv_line + 1 + i, self.inv_row)
                 clear_line()
-                print(f'[{self.drop_keys[i]}]', end=' ')
+                print(f'[{drop_keys[i]}]', end=' ')
                 print(self.content[i].name, end='')
         print(Style.RESET_ALL, end='')
 
     def clear_lines(self):
-        for i in range(len(self.drop_keys)):
+        for i in range(len(drop_keys)):
             move_cursor_to(self.inv_line + 1 + i, self.inv_row)
             clear_line()
 
@@ -146,50 +146,16 @@ class Hero:
         LOG.add_msg('Select an item to drop. Press C to cancel')
         while True:
             key_pressed = readkey()
-            try:
-                if key_pressed == 'q':
-                    INVENTORY.drop_item(0)
-                    return True
-                elif key_pressed == 'w':
-                    INVENTORY.drop_item(1)
-                    return True
-                elif key_pressed == 'e':
-                    INVENTORY.drop_item(2)
-                    return True
-                elif key_pressed == 'r':
-                    INVENTORY.drop_item(3)
-                    return True
-                elif key_pressed == 't':
-                    INVENTORY.drop_item(4)
-                    return True
-                elif key_pressed == 'y':
-                    INVENTORY.drop_item(5)
-                    return True
-                elif key_pressed == 'a':
-                    INVENTORY.drop_item(6)
-                    return True
-                elif key_pressed == 's':
-                    INVENTORY.drop_item(7)
-                    return True
-                elif key_pressed == 'd':
-                    INVENTORY.drop_item(8)
-                    return True
-                elif key_pressed == 'f':
-                    INVENTORY.drop_item(9)
-                    return True
-                elif key_pressed == 'g':
-                    INVENTORY.drop_item(10)
-                    return True
-                elif key_pressed == 'h':
-                    INVENTORY.drop_item(11)
+            for i, key in enumerate(drop_keys):
+                if key_pressed == key:
+                    INVENTORY.drop_item(i)
                     return True
                 elif key_pressed == 'c':
                     LOG.add_msg('You changed your mind on dropping something.')
                     return False
                 else:
                     LOG.add_msg('Select a proper item in your backpack.')
-            except IndexError:
-                LOG.add_msg('Select a proper item in your backpack.')
+                    break
 
 
 # TODO: Rework positioning in the file and remove classes from it
@@ -278,7 +244,6 @@ def main():
         if input_handler():
             break
         G_STATE.update_scr()
-    close_terminal()
     colorama.deinit()
 
 
