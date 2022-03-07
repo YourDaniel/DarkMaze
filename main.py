@@ -244,8 +244,6 @@ def main():
         if input_handler():
             break
         G_STATE.update_scr()
-    clear()
-    #close_terminal()
     colorama.deinit()
 
 
