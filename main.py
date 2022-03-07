@@ -29,14 +29,13 @@ def remove_object(obj, x, y):
 
 
 def lower_letter(obj):
-        return obj.name[:1].lower() + obj.name[1:]
+    return obj.name[:1].lower() + obj.name[1:]
 
 
 class Inventory:
     content = []
     inv_line = 0                         # Inventory starts from top of the window
     inv_row = len(G_STATE.level[0]) + 1  # Inventory as far to the right as width of the map + border
-
 
     def add_item(self, obj):
         self.content.append(obj)
@@ -162,7 +161,7 @@ class Hero:
 
 # TODO: Rework positioning in the file and remove classes from it
 
-LOG = Log(log_len=10, timestamps=False, log_to_file=False, filename=f'{LOG_FOLDER}/logs.txt', log_line=len(G_STATE.level))
+LOG = Log(log_len=10, timestamps=False, log_to_file=True, filename=f'{LOG_FOLDER}/logs.txt', log_line=len(G_STATE.level))
 HERO = Hero(2, 53, 'Daniel')  # Test coordinates for 1 lvl
 INVENTORY = Inventory()
 
@@ -199,12 +198,6 @@ def input_handler():
 
 
 def main():
-    # TODO: Move this functionality to Log class
-    if LOG.log_to_file:
-        now = datetime.today()
-        log_file = open('logs/logs.txt', 'a')
-        log_file.write('-------------------------------------\n')
-        log_file.write(now.strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
     # TODO: Do not use colorama, remove all calls to it
     colorama.init()
     #data = open('data', 'w')

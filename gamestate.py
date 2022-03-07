@@ -22,7 +22,6 @@ def create_tile(raw_tile, x, y):
 
 class GameState:
     def __init__(self):
-        # self.letters_picked = []
         self.level = []
         self.upd_chars = []
 

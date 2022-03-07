@@ -1,6 +1,7 @@
 from datetime import datetime
 from ansi_wraps import *
 from colorama import Fore, Style
+import os
 
 
 class Log:
@@ -12,12 +13,18 @@ class Log:
         self.timestamps_on = timestamps
         self.log_to_file = log_to_file
         self.filename = filename
+        if self.log_to_file:
+            with open(self.filename, 'a', encoding='UTF-8') as f:
+                f.write('--------------------------------------\n')
+                f.write(datetime.today().strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
+
         self.log_line = log_line
 
     def add_msg(self, msg):
         timestamp = datetime.today().strftime("[%H:%M:%S] ")
         if self.log_to_file:
-            self.filename.write(timestamp + msg + '\n')
+            with open(self.filename, 'a', encoding='UTF-8') as f:
+                f.write(timestamp + msg + '\n')
 
         if len(self.messages) > 0 and self.messages[0][0] == msg:
             self.messages[0][1] += 1
