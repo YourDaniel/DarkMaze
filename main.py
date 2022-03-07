@@ -16,7 +16,9 @@ kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
 G_STATE = GameState()
 G_STATE.load_level('levels/test_big_level.txt')
+LOG_FOLDER = 'logs'
 drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
+
 
 def place_object(obj, x, y):
     G_STATE.level[x][y].add_object(obj)
@@ -160,7 +162,7 @@ class Hero:
 
 # TODO: Rework positioning in the file and remove classes from it
 
-LOG = Log(log_len=10, timestamps=False, log_to_file=False, filename='logs.txt', log_line=len(G_STATE.level))
+LOG = Log(log_len=10, timestamps=False, log_to_file=False, filename=f'{LOG_FOLDER}/logs.txt', log_line=len(G_STATE.level))
 HERO = Hero(2, 53, 'Daniel')  # Test coordinates for 1 lvl
 INVENTORY = Inventory()
 
@@ -200,7 +202,7 @@ def main():
     # TODO: Move this functionality to Log class
     if LOG.log_to_file:
         now = datetime.today()
-        log_file = open('logs.txt', 'a')
+        log_file = open('logs/logs.txt', 'a')
         log_file.write('-------------------------------------\n')
         log_file.write(now.strftime("Game session at %H:%M:%S on %d.%m.%Y\n"))
     # TODO: Do not use colorama, remove all calls to it
