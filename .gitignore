@@ -4,3 +4,4 @@
 .idea/**/dictionaries
 .idea/**/shelf
 /examples/
+__pycache__
