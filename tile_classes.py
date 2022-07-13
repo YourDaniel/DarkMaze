@@ -1,7 +1,7 @@
 from tileset import tile_set
 
 
-# TODO: Add tiles variety
+#  TODO: Add tiles variety
 class TileObject:
     def __init__(self, x_position, y_position):
         self.objects_hidden = False

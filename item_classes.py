@@ -1,13 +1,7 @@
-# from tile_classes import TileObject
 from tileset import tile_set
-# TODO: implement IDs to distinguish different items
 
 
 class ItemObject:
-
-    #def __init__(self, x_position, y_position):
-    #   self.x_pos = x_position
-    #    self.y_pos = y_position
     pass
 
 
@@ -17,9 +11,6 @@ class Key(ItemObject):
     name_a = 'a key'
     description = 'A small rusted key. Used for opening doors.'
     tile_char = tile_set['key']['custom_tile']
-
-    '''def __init__(self, x, y):
-        super(Key, self).__init__(x, y)'''
 
 
 class Diamond(ItemObject):
@@ -36,3 +27,5 @@ class Ace(ItemObject):
     name_a = 'an ace of spades'
     description = 'A worn ace of spades playing card. It has a ripped corner.'
     tile_char = '♠'
+
+# TODO: implement IDs to distinguish different items
