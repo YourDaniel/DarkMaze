@@ -90,3 +90,6 @@ class Level:
             return tile_classes.StairsDown(x, y)
         elif raw_tile == tile_set['chest']['standard_tile']:
             return tile_classes.Chest(x, y)
+        else:
+            # Make a floor tile if a tile was no found
+            return tile_classes.Floor(x, y)

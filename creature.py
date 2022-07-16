@@ -1,9 +1,10 @@
 from inventory import Inventory
+from level import Level
+from debug_log import debug
 from item_classes import Key
+from log import Log
 from readchar import readkey
 
-# from log import Log
-# logger = Log(11)
 
 drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
@@ -12,31 +13,45 @@ class Hero:
     id = 0
     tile_char = '☻'
 
-    def __init__(self, x_position, y_position, name, inv_col):
+    def __init__(self, x_position, y_position, name, inv_col, level, log):
         self.x_pos = x_position
         self.y_pos = y_position
         self.name = name
         self.inventory = Inventory(inv_col=inv_col)
+        self.level = level
+        self.log = log
 
     def move(self, x, y):
-        self.x_pos = x
-        self.y_pos = y
-
-    '''
-    def open(self, x, y):
-        obj_name = G_STATE.level[x][y].name_a
-        if G_STATE.level[x][y].is_closed:
-            if self.inventory.item_inside(Key):
-                G_STATE.upd_chars.append((x, y))
-                G_STATE.upd_chars.append((self.x_pos, self.y_pos))
-                G_STATE.level[x][y].open()
-                self.inventory.remove_item(Key.id)
-                LOG.add_msg(f'You opened {obj_name}.')
+        try:
+            if self.level.get_object(x, y).can_walk_on:
+                self.level.upd_chars.append((x, y))
+                self.level.upd_chars.append((self.x_pos, self.y_pos))
+                self.level.place_object(self, x, y)  # TODO: change to move object
+                self.level.remove_object(self, self.x_pos, self.y_pos)
+                self.x_pos = x
+                self.y_pos = y
             else:
-                LOG.add_msg(f'You need to find a key to open {obj_name}.')
-        else:
-            LOG.add_msg(f"You can't open {obj_name}.")
+                try:
+                    self.open(x, y)
+                except AttributeError:
+                    self.log.add_msg("You can't move here.")
+        except IndexError:
+            self.log.add_msg("You can't move here.")
 
+    def open(self, x, y):
+        obj_name = self.level.get_object(x, y).name_a
+        if self.level.get_object(x, y).is_closed:
+            if self.inventory.item_inside(Key):
+                self.level.upd_chars.append((x, y))
+                self.level.upd_chars.append((self.x_pos, self.y_pos))
+                self.level.get_object(x, y).open()
+                self.inventory.remove_item(Key.id)
+                self.log.add_msg(f'You opened {obj_name}.')
+            else:
+                self.log.add_msg(f'You need to find a key to open {obj_name}.')
+        else:
+            self.log.add_msg(f"You can't open {obj_name}.")
+    '''
     
     def grab(self):
         objects_below = G_STATE.level[self.x_pos][self.y_pos].objects_on

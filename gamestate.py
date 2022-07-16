@@ -3,6 +3,7 @@ from item_classes import Key, Diamond, Ace
 from readchar import readkey
 from log import Log
 from level import Level
+from creature import Hero
 
 
 class GameState:
@@ -11,13 +12,12 @@ class GameState:
         self.level = Level()
         self.level.load(level_file)
         self.log = Log(log_line=self.level.get_size('height'))  # TODO: make it property
-        self.hero = None
+        self.hero = Hero(2, 2, 'Daniel', self.level.get_size('width') + 1, self.level, self.log)
 
     def spawn_character(self, character):
         self.level.place_object(character, character.x_pos, character.y_pos)
 
-    def test_simple_box(self, hero):
-        self.hero = hero
+    def test_simple_box(self):
         self.spawn_character(self.hero)
         self.level.place_object(Key(), 2, 3)
         self.level.place_object(Key(), 2, 4)
@@ -25,22 +25,7 @@ class GameState:
         self.level.place_object(Diamond(), 2, 17)
         self.level.place_object(Ace(), 2, 12)
         self.level.draw()
-
-    def move_hero(self, x, y):
-        try:
-            if self.level.get_object(x, y).can_walk_on:
-                self.level.upd_chars.append((x, y))
-                self.level.upd_chars.append((self.hero.x_pos, self.hero.y_pos))
-                self.level.place_object(self.hero, x, y)  # TODO: change to move object
-                self.level.remove_object(self.hero, self.hero.x_pos, self.hero.y_pos)
-                self.hero.move(x, y)
-            else:
-                try:
-                    self.hero.open(x, y)
-                except AttributeError:
-                    self.log.add_msg("You can't move here.")
-        except IndexError:
-            self.log.add_msg("You can't move here.")
+        self.hero.inventory.draw()
 
     def grab(self):
         objects_below = self.level.get_object(self.hero.x_pos, self.hero.y_pos).objects_on
@@ -63,13 +48,13 @@ class GameState:
 
         # Moving
         if key_pressed == 'w':
-            self.move_hero(self.hero.x_pos - 1, self.hero.y_pos)
+            self.hero.move(self.hero.x_pos - 1, self.hero.y_pos)
         elif key_pressed == 'a':
-            self.move_hero(self.hero.x_pos, self.hero.y_pos - 1)
+            self.hero.move(self.hero.x_pos, self.hero.y_pos - 1)
         elif key_pressed == 's':
-            self.move_hero(self.hero.x_pos + 1, self.hero.y_pos)
+            self.hero.move(self.hero.x_pos + 1, self.hero.y_pos)
         elif key_pressed == 'd':
-            self.move_hero(self.hero.x_pos, self.hero.y_pos + 1)
+            self.hero.move(self.hero.x_pos, self.hero.y_pos + 1)
 
         # Actions
         elif key_pressed == 'g':
