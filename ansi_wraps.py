@@ -75,5 +75,4 @@ def print_colored(string, color, end=''):
     elif color == 'l_white':
         print('\u001b[37;1m' + string + '\u001b[0m', end=end)
     else:
-        print('NO SUCH COLOR!')
-        # TODO: Raise error
+        raise Exception(f'No such color in the palette: {color}')
