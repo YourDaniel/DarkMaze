@@ -12,7 +12,7 @@ if os.name == 'nt':
 LOG_FOLDER = 'logs'
 
 G_STATE = GameState(level_file='levels/simple_box.txt')
-HERO = Hero(2, 2, 'Daniel', G_STATE.get_level_size()[0] + 1)  # Inventory as far to the right as width of the map + border
+HERO = Hero(2, 2, 'Daniel', inv_col=G_STATE.level.get_size('width') + 1)  # Inventory as far to the right as width of the map + border
 
 
 def main():
@@ -25,16 +25,16 @@ def main():
     G_STATE.log.draw()
     while True:
         if G_STATE.input_handler():
-            print('HI')
             break
 
         #LOG.add_msg('Screen updated')
-        with open('debug_file.txt', 'a') as f:
-            f.write(f'{G_STATE.upd_chars}\n')
+        #with open('debug_file.txt', 'a') as f:
+        #    f.write(f'{G_STATE.upd_chars}\n')
 
-        G_STATE.update_scr()
-        with open('debug_file.txt', 'a') as f:
-            f.write(f'update_scr was called {G_STATE.upd_chars}\n')
+        G_STATE.level.update_scr()
+
+        #with open('debug_file.txt', 'a') as f:
+        #   f.write(f'update_scr was called {G_STATE.upd_chars}\n')
 
     G_STATE.tm.show_cursor()
     colorama.deinit()
