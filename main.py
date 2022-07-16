@@ -19,7 +19,6 @@ def main():
     G_STATE.log.add_msg('Welcome to Dark Maze!')
     G_STATE.tm.hide_cursor()
     G_STATE.test_simple_box()
-    # HERO.inventory.draw()
     G_STATE.log.draw()
     while True:
         if G_STATE.input_handler():
@@ -35,4 +34,3 @@ if __name__ == '__main__':
 
 
 # TODO: Do not use colorama, remove all calls to it
-# TODO: Remove all logic from input_handler, use it only for appropriate calls

@@ -21,4 +21,4 @@ tile_set = {
         dict(standard_tile='◊', custom_tile='◊', name='Diamond')
 }
 
-# TODO: make this file into JSON
+#  TODO: make this file into JSON

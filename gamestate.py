@@ -1,4 +1,5 @@
 from ansi_wraps import TerminalManager
+from ansi_wraps import print_colored
 from item_classes import Key, Diamond, Ace
 from readchar import readkey
 from log import Log
@@ -11,7 +12,7 @@ class GameState:
         self.tm = TerminalManager()
         self.level = Level()
         self.level.load(level_file)
-        self.log = Log(log_line=self.level.get_size('height'))  # TODO: make it property
+        self.log = Log(log_line=self.level.get_size('height') + 1)  # TODO: make it property
         self.hero = Hero(2, 2, 'Daniel', self.level.get_size('width') + 1, self.level, self.log)
 
     def spawn_character(self, character):
@@ -26,22 +27,12 @@ class GameState:
         self.level.place_object(Ace(), 2, 12)
         self.level.draw()
         self.hero.inventory.draw()
+        self.draw_ui()
 
-    def grab(self):
-        objects_below = self.level.get_object(self.hero.x_pos, self.hero.y_pos).objects_on
-        tile_name = self.level.get_object(self.hero.x_pos, self.hero.y_pos).name_a
-        for i in range(len(objects_below)-1, -1, -1):
-            # Check if picked item is not a Hero since he has id = 0
-            # TODO: Fix this dirty hack
-            if objects_below[i].id != 0:
-                self.hero.inventory.add_item(objects_below[i])
-                obj_name = objects_below[i].name_a
-                self.level.remove_object(objects_below[i], self.hero.x_pos, self.hero.y_pos)
-                self.level.upd_chars.append((self.hero.x_pos, self.hero.y_pos))
-                self.log.add_msg(f'You grabbed {obj_name} from {tile_name}.')
-                break
-        else:
-            self.log.add_msg('There are no items here.')
+    def draw_ui(self):
+        self.tm.move_cursor_to(self.level.get_size('height'), 0)
+        print_colored('HP: ♥♥♥', 'red', end=' ')
+        print_colored('COINS: ☼☼☼', 'yellow')
 
     def input_handler(self):
         key_pressed = readkey()
@@ -58,16 +49,11 @@ class GameState:
 
         # Actions
         elif key_pressed == 'g':
-            self.grab()
+            self.hero.grab()
         elif key_pressed == 't':
             self.hero.drop()
         elif key_pressed == 'l':  # Look
-            objects_below = self.level[self.hero.x_pos][self.hero.y_pos].objects_on
-            tile_below = self.level[self.hero.x_pos][self.hero.y_pos]
-            if len(objects_below) > 1:
-                self.log.add_msg(f'You see {objects_below[-2].description[:1].lower()}{objects_below[-2].description[1:]}')
-            else:
-                self.log.add_msg(f'You see {tile_below.description[:1].lower()}{tile_below.description[1:]}')
+            self.hero.look()
 
         # Misc
         elif key_pressed == 'p':
@@ -82,5 +68,4 @@ class GameState:
         else:
             self.input_handler()
 
-# TODO: remove local coordinates from hero
 # TODO: combine items placement and loading level to one logic
