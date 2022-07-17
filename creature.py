@@ -9,12 +9,12 @@ class Hero:
     id = 0
     tile_char = '☻'
 
-    def __init__(self, x_position, y_position, name, inv_col, level, log):
+    def __init__(self, x_position, y_position, name, level, log):
         self.x_pos = x_position
         self.y_pos = y_position
         self.name = name
-        self.inventory = Inventory(inv_col=inv_col)
         self.level = level
+        self.inventory = Inventory(inv_col=self.level.get_size('width') + 1, height=self.level.get_size('height'))
         self.log = log
 
     def move(self, x, y):
@@ -71,19 +71,22 @@ class Hero:
         self.log.add_msg('Select an item to drop. Press C to cancel')
         while True:
             key_pressed = readkey()
-            for i, key in enumerate(DROP_KEYS):
-                if key_pressed == key:
-                    self.level.place_object(self.inventory.content[i], self.x_pos, self.y_pos)
-                    self.log.add_msg(f'You dropped {self.inventory.content[i].name_a}.')
-                    del self.inventory.content[i]
+            if key_pressed == 'c':
+                self.log.add_msg('You changed your mind on dropping something.')
+                return False
+
+            if key_pressed not in DROP_KEYS:
+                self.log.add_msg('Select a proper item in your backpack.')
+            else:
+                item_index = DROP_KEYS.index(key_pressed)
+                if item_index >= len(self.inventory.content):
+                    self.log.add_msg('Select a proper item in your backpack.')
+                else:
+                    self.level.place_object(self.inventory.content[item_index], self.x_pos, self.y_pos)
+                    self.log.add_msg(f'You dropped {self.inventory.content[item_index].name_a}.')
+                    del self.inventory.content[item_index]
                     self.inventory.draw()
                     return True
-                elif key_pressed == 'c':
-                    self.log.add_msg('You changed your mind on dropping something.')
-                    return False
-                else:
-                    self.log.add_msg('Select a proper item in your backpack.')
-                    break
 
     def look(self):
         objects_below = self.level.get_object(self.x_pos, self.y_pos).objects_on
