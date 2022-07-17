@@ -9,8 +9,9 @@ class Inventory:
     content = []
     inv_line = 0  # Inventory starts from top of the window
 
-    def __init__(self, inv_col):
+    def __init__(self, inv_col, height):
         self.inv_col = inv_col
+        self.height = height
 
     def add_item(self, obj):
         self.content.append(obj)
@@ -40,7 +41,7 @@ class Inventory:
         print(Color.reset, end='')
 
     def clear_lines(self):
-        for i in range(len(DROP_KEYS)):
+        for i in range(self.height - 1):
             tm.move_cursor_to(self.inv_line + 1 + i, self.inv_col)
             tm.clear_line()
 
