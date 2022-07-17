@@ -1,8 +1,8 @@
 from ansi_wraps import Color
 from ansi_wraps import TerminalManager
+from globals import DROP_KEYS
 
 tm = TerminalManager()
-drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
 
 class Inventory:
@@ -26,7 +26,7 @@ class Inventory:
     def draw(self):
         print(Color.l_yellow, end='')
         tm.move_cursor_to(self.inv_line, self.inv_col)
-        print('Inventory:')
+        print('δ Inventory:')
         self.clear_lines()
         tm.move_cursor_to(self.inv_line + 1, self.inv_col)
         if len(self.content) == 0:
@@ -35,12 +35,12 @@ class Inventory:
             for i in range(len(self.content)):
                 tm.move_cursor_to(self.inv_line + 1 + i, self.inv_col)
                 tm.clear_line()
-                print(f'[{drop_keys[i]}]', end=' ')
+                print(f'[{DROP_KEYS[i]}]', end=' ')
                 print(self.content[i].name, end='')
         print(Color.reset, end='')
 
     def clear_lines(self):
-        for i in range(len(drop_keys)):
+        for i in range(len(DROP_KEYS)):
             tm.move_cursor_to(self.inv_line + 1 + i, self.inv_col)
             tm.clear_line()
 

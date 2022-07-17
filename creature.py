@@ -1,10 +1,8 @@
 from inventory import Inventory
-from item_classes import Key
+from items import Key
 from readchar import readkey
+from globals import DROP_KEYS
 from debug_log import debug
-
-
-drop_keys = ('q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'h')
 
 
 class Hero:
@@ -73,7 +71,7 @@ class Hero:
         self.log.add_msg('Select an item to drop. Press C to cancel')
         while True:
             key_pressed = readkey()
-            for i, key in enumerate(drop_keys):
+            for i, key in enumerate(DROP_KEYS):
                 if key_pressed == key:
                     self.level.place_object(self.inventory.content[i], self.x_pos, self.y_pos)
                     self.log.add_msg(f'You dropped {self.inventory.content[i].name_a}.')

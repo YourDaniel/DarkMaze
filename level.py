@@ -1,4 +1,4 @@
-import tile_classes
+import tiles
 from tileset import tile_set
 from ansi_wraps import TerminalManager
 
@@ -8,6 +8,7 @@ tm = TerminalManager()
 class Level:
     map = []
     upd_chars = []
+    name = ''
 
     def __init__(self):
         pass
@@ -79,17 +80,17 @@ class Level:
     @staticmethod
     def create_tile(raw_tile, x, y):
         if raw_tile == tile_set['wall']['standard_tile']:
-            return tile_classes.Wall(x, y)
+            return tiles.Wall(x, y)
         elif raw_tile == tile_set['floor']['standard_tile']:
-            return tile_classes.Floor(x, y)
+            return tiles.Floor(x, y)
         elif raw_tile == tile_set['door_v']['standard_tile']:
-            return tile_classes.Door(x, y, 1)
+            return tiles.Door(x, y, 1)
         elif raw_tile == tile_set['door_h']['standard_tile']:
-            return tile_classes.Door(x, y, 0)
+            return tiles.Door(x, y, 0)
         elif raw_tile == tile_set['stairs_down']['standard_tile']:
-            return tile_classes.StairsDown(x, y)
+            return tiles.StairsDown(x, y)
         elif raw_tile == tile_set['chest']['standard_tile']:
-            return tile_classes.Chest(x, y)
+            return tiles.Chest(x, y)
         else:
             # Make a floor tile if a tile was no found
-            return tile_classes.Floor(x, y)
+            return tiles.Floor(x, y)

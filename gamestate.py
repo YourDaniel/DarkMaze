@@ -1,7 +1,8 @@
+from readchar import readkey
+
 from ansi_wraps import TerminalManager
 from ansi_wraps import print_colored
-from item_classes import Key, Diamond, Ace
-from readchar import readkey
+from items import Key, Diamond, Ace
 from log import Log
 from level import Level
 from creature import Hero
@@ -20,7 +21,9 @@ class GameState:
 
     def test_simple_box(self):
         self.spawn_character(self.hero)
-        self.level.place_object(Key(), 2, 3)
+        self.level.name = 'Test level'
+        for _ in range(20):
+            self.level.place_object(Key(), 2, 3)
         self.level.place_object(Key(), 2, 4)
         self.level.place_object(Diamond(), 2, 17)
         self.level.place_object(Diamond(), 2, 17)
@@ -32,7 +35,8 @@ class GameState:
     def draw_ui(self):
         self.tm.move_cursor_to(self.level.get_size('height'), 0)
         print_colored('HP: ♥♥♥', 'red', end=' ')
-        print_colored('COINS: ☼☼☼', 'yellow')
+        print_colored('COINS: ☼☼☼', 'yellow', end=' ')
+        print_colored(f'LEVEL: {self.level.name}', 'l_black')
 
     def input_handler(self):
         key_pressed = readkey()
