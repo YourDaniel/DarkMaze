@@ -14,7 +14,7 @@ class GameState:
         self.level = Level()
         self.level.load(level_file)
         self.log = Log(log_line=self.level.get_size('height') + 1)  # TODO: make it property
-        self.hero = Hero(2, 2, 'Daniel', self.level.get_size('width') + 1, self.level, self.log)
+        self.hero = Hero(2, 2, 'Daniel', self.level, self.log)
 
     def spawn_character(self, character):
         self.level.place_object(character, character.x_pos, character.y_pos)
@@ -39,7 +39,11 @@ class GameState:
         print_colored(f'LEVEL: {self.level.name}', 'l_black')
 
     def input_handler(self):
-        key_pressed = readkey()
+        try:
+            key_pressed = readkey()
+        except UnicodeDecodeError:
+            self.log.add_msg('Try switching to ENG layout!')
+            return False
 
         # Moving
         if key_pressed == 'w':
