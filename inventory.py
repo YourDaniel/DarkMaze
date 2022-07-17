@@ -12,8 +12,11 @@ class Inventory:
     def __init__(self, inv_col, height):
         self.inv_col = inv_col
         self.height = height
+        self.max_size = len(DROP_KEYS)
 
     def add_item(self, obj):
+        if len(self.content) == self.max_size:
+            raise InventoryIsFullException
         self.content.append(obj)
         self.draw()
 
@@ -50,3 +53,8 @@ class Inventory:
             return True
         else:
             return False
+
+
+class InventoryIsFullException(Exception):
+    def __init__(self, message='Inventory is full'):
+        super().__init__(message)

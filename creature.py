@@ -1,4 +1,4 @@
-from inventory import Inventory
+from inventory import Inventory, InventoryIsFullException
 from items import Key
 from readchar import readkey
 from globals import DROP_KEYS
@@ -55,12 +55,16 @@ class Hero:
             # Check if picked item is not a Hero since he has id = 0
             # TODO: Fix this dirty hack
             if objects_below[i].id != 0:
-                self.inventory.add_item(objects_below[i])
+                try:
+                    self.inventory.add_item(objects_below[i])
+                except InventoryIsFullException:
+                    self.log.add_msg("Can't take any more items. Inventory is full.")
+                    return False
                 obj_name = objects_below[i].name_a
                 self.level.remove_object(objects_below[i], self.x_pos, self.y_pos)
                 self.level.upd_chars.append((self.x_pos, self.y_pos))
                 self.log.add_msg(f'You grabbed {obj_name} from {tile_name}.')
-                break
+                return True
         else:
             self.log.add_msg('There are no items here.')
 
@@ -70,23 +74,25 @@ class Hero:
             return False
         self.log.add_msg('Select an item to drop. Press C to cancel')
         while True:
-            key_pressed = readkey()
-            if key_pressed == 'c':
-                self.log.add_msg('You changed your mind on dropping something.')
-                return False
-
-            if key_pressed not in DROP_KEYS:
-                self.log.add_msg('Select a proper item in your backpack.')
-            else:
-                item_index = DROP_KEYS.index(key_pressed)
-                if item_index >= len(self.inventory.content):
+            try:
+                key_pressed = readkey()
+                if key_pressed == 'c':
+                    self.log.add_msg('You changed your mind on dropping something.')
+                    return False
+                if key_pressed not in DROP_KEYS:
                     self.log.add_msg('Select a proper item in your backpack.')
                 else:
-                    self.level.place_object(self.inventory.content[item_index], self.x_pos, self.y_pos)
-                    self.log.add_msg(f'You dropped {self.inventory.content[item_index].name_a}.')
-                    del self.inventory.content[item_index]
-                    self.inventory.draw()
-                    return True
+                    item_index = DROP_KEYS.index(key_pressed)
+                    if item_index >= len(self.inventory.content):
+                        self.log.add_msg('Select a proper item in your backpack.')
+                    else:
+                        self.level.place_object(self.inventory.content[item_index], self.x_pos, self.y_pos)
+                        self.log.add_msg(f'You dropped {self.inventory.content[item_index].name_a}.')
+                        del self.inventory.content[item_index]
+                        self.inventory.draw()
+                        return True
+            except UnicodeDecodeError:
+                self.log.add_msg('Try switching to ENG layout')
 
     def look(self):
         objects_below = self.level.get_object(self.x_pos, self.y_pos).objects_on
@@ -95,7 +101,3 @@ class Hero:
             self.log.add_msg(f'You see {objects_below[-2].description[:1].lower()}{objects_below[-2].description[1:]}')
         else:
             self.log.add_msg(f'You see {tile_below.description[:1].lower()}{tile_below.description[1:]}')
-
-
-# TODO: make log work from several instances (bug: new message continues count)
-# TODO: initialize Hero from Gamestate
