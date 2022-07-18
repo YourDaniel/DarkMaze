@@ -74,8 +74,17 @@ class Level:
         self.remove_object(obj, obj.x_pos, obj.y_pos)
         self.place_object(obj, to_x, to_y)
 
-    def get_coords(self):
-        pass
+    def check_for_move(self, x, y):
+        tile = self.map[x][y]
+        if not tile.can_walk_on:
+            return False
+        for item in tile.objects_on:
+            try:
+                if not item.can_walk_on:
+                    return False
+            except AttributeError as e:
+                raise Exception(f'No attribute can_walk_on for {item}: {e}')
+        return True
 
     @staticmethod
     def create_tile(raw_tile, x, y):
