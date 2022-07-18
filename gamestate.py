@@ -34,7 +34,7 @@ class GameState:
 
     def draw_ui(self):
         self.tm.move_cursor_to(self.level.get_size('height'), 0)
-        print_colored('HP: ♥♥♥', 'red', end=' ')
+        print_colored('HP †: ♥♥♥', 'red', end=' ')
         print_colored('COINS: ☼☼☼', 'yellow', end=' ')
         print_colored(f'LEVEL: {self.level.name}', 'l_black')
 
