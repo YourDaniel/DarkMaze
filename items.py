@@ -2,7 +2,8 @@ from tileset import tile_set
 
 
 class ItemObject:
-    pass
+    def __init__(self):
+        self.can_walk_on = True
 
 
 class Key(ItemObject):
