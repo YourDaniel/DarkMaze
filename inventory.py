@@ -10,30 +10,33 @@ class Inventory:
     inv_line = 0  # Inventory starts from top of the window
     column_padding = 15  # chars
 
-    def __init__(self, inv_col, height):
+    def __init__(self, inv_col, height, visible=False):
         self.inv_col = inv_col
         self.height = height - 1
         self.max_size = len(DROP_KEYS)
+        self.visible = visible
 
     def add_item(self, obj):
         if len(self.content) == self.max_size:
             raise InventoryIsFullException
         self.content.append(obj)
-        self.draw()
+        if self.visible:
+            self.draw()
 
     def remove_item(self, obj_id):
         for i in range(len(self.content)):
             if self.content[i].id == obj_id:
                 del self.content[i]
                 break
-        self.draw()
+        if self.visible:
+            self.draw()
 
     def draw(self):
         print(Color.l_yellow, end='')
         tm.move_cursor_to(self.inv_line, self.inv_col)
         tm.clear_line()
         print(f'☼ Inventory {len(self.content)}/{self.max_size}')
-        self.clear_lines()
+        self._clear_lines()
         tm.move_cursor_to(self.inv_line + 1, self.inv_col)
         if len(self.content) == 0:
             print('Your backpack is empty')
@@ -50,7 +53,7 @@ class Inventory:
                 print(f'[{DROP_KEYS[i]}] {self.content[i].name}', end='')
         print(Color.reset, end='')
 
-    def clear_lines(self):
+    def _clear_lines(self):
         for i in range(self.height - 1):
             tm.move_cursor_to(self.inv_line + 1 + i, self.inv_col)
             tm.clear_line()
