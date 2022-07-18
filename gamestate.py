@@ -5,7 +5,7 @@ from ansi_wraps import print_colored
 from items import Key, Diamond, Ace
 from log import Log
 from level import Level
-from creature import Hero
+from creature import Hero, Enemy
 
 
 class GameState:
@@ -14,13 +14,14 @@ class GameState:
         self.level = Level()
         self.level.load(level_file)
         self.log = Log(log_line=self.level.get_size('height') + 1)  # TODO: make it property
-        self.hero = Hero(2, 2, 'Daniel', self.level, self.log)
+        self.hero = Hero(2, 2, 'Daniel', self.level)
 
     def spawn_character(self, character):
         self.level.place_object(character, character.x_pos, character.y_pos)
 
     def test_simple_box(self):
         self.spawn_character(self.hero)
+        self.spawn_character(Enemy(4, 4, 'Enemy', self.level))
         self.level.name = 'Test level'
         for _ in range(20):
             self.level.place_object(Key(), 2, 3)
