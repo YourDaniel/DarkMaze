@@ -4,6 +4,7 @@ from tileset import tile_set
 class ItemObject:
     def __init__(self):
         self.can_walk_on = True
+        self.color = 'white'
 
 
 class Key(ItemObject):
@@ -12,6 +13,10 @@ class Key(ItemObject):
     name_a = 'a key'
     description = 'A small rusted key. Used for opening doors.'
     tile_char = tile_set['key']['custom_tile']
+
+    def __init__(self):
+        super().__init__()
+        self.color = 'l_yellow'
 
 
 class Diamond(ItemObject):

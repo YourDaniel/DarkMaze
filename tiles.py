@@ -8,6 +8,7 @@ class TileObject:
         self.x_pos = x_position
         self.y_pos = y_position
         self.objects_on = []
+        self.color = 'white'
 
     def add_object(self, item_object):
         self.objects_on.append(item_object)
@@ -37,11 +38,12 @@ class Floor(TileObject):
     bottom_tile_char = tile_set['floor']['custom_tile']
 
     def __init__(self, x, y):
+        super().__init__(x, y)
         self.destroyable = False
         self.can_walk_on = True
         self.obtainable = False
         self.description = 'A rough stone floor. It is dark and cold.'
-        super(Floor, self).__init__(x, y)
+        self.color = 'l_black'
 
 
 class Door(TileObject):

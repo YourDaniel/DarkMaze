@@ -19,6 +19,43 @@ class TerminalManager:
     def clear(self):
         print(self.ESC_CHAR + '2J')
 
+    def print_colored(self, string: str, color: str, end=''):
+        if color == 'black':
+            print(self.ESC_CHAR + '30m' + string, end='')
+        elif color == 'red':
+            print(self.ESC_CHAR + '31m' + string, end='')
+        elif color == 'green':
+            print(self.ESC_CHAR + '32m' + string, end='')
+        elif color == 'yellow':
+            print(self.ESC_CHAR + '33m' + string, end='')
+        elif color == 'blue':
+            print(self.ESC_CHAR + '34m' + string, end='')
+        elif color == 'magenta':
+            print(self.ESC_CHAR + '35m' + string, end='')
+        elif color == 'cyan':
+            print(self.ESC_CHAR + '36m' + string, end='')
+        elif color == 'white':
+            print(self.ESC_CHAR + '37m' + string, end='')
+        elif color == 'l_black':
+            print(self.ESC_CHAR + '30;1m' + string, end='')
+        elif color == 'l_red':
+            print(self.ESC_CHAR + '31;1m' + string, end='')
+        elif color == 'l_green':
+            print(self.ESC_CHAR + '32;1m' + string, end='')
+        elif color == 'l_yellow':
+            print(self.ESC_CHAR + '33;1m' + string, end='')
+        elif color == 'l_blue':
+            print(self.ESC_CHAR + '34;1m' + string, end='')
+        elif color == 'l_magenta':
+            print(self.ESC_CHAR + '35;1m' + string, end='')
+        elif color == 'l_cyan':
+            print(self.ESC_CHAR + '36;1m' + string, end='')
+        elif color == 'l_white':
+            print(self.ESC_CHAR + '37;1m' + string, end='')
+        else:
+            raise Exception(f'No such color in the palette: {color}')
+        print(self.ESC_CHAR + '0m', end=end)
+
 
 class Color:
     bold = '\033[1m'
@@ -39,40 +76,3 @@ class Color:
     l_cyan = '\033[36;1m'
     l_white = '\033[37;1m'
     reset = '\033[0m'
-
-
-def print_colored(string, color, end=''):
-    if color == 'black':
-        print('\u001b[30m' + string + '\u001b[0m', end=end)
-    elif color == 'red':
-        print('\u001b[31m' + string + '\u001b[0m', end=end)
-    elif color == 'green':
-        print('\u001b[32m' + string + '\u001b[0m', end=end)
-    elif color == 'yellow':
-        print('\u001b[33m' + string + '\u001b[0m', end=end)
-    elif color == 'blue':
-        print('\u001b[34m' + string + '\u001b[0m', end=end)
-    elif color == 'magenta':
-        print('\u001b[35m' + string + '\u001b[0m', end=end)
-    elif color == 'cyan':
-        print('\u001b[36m' + string + '\u001b[0m', end=end)
-    elif color == 'white':
-        print('\u001b[37m' + string + '\u001b[0m', end=end)
-    elif color == 'l_black':
-        print('\u001b[30;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_red':
-        print('\u001b[31;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_green':
-        print('\u001b[32;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_yellow':
-        print('\u001b[33;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_blue':
-        print('\u001b[34;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_magenta':
-        print('\u001b[35;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_cyan':
-        print('\u001b[36;1m' + string + '\u001b[0m', end=end)
-    elif color == 'l_white':
-        print('\u001b[37;1m' + string + '\u001b[0m', end=end)
-    else:
-        raise Exception(f'No such color in the palette: {color}')

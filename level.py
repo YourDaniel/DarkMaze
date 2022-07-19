@@ -2,6 +2,7 @@ import tiles
 from tileset import tile_set
 from ansi_wraps import TerminalManager
 
+
 tm = TerminalManager()
 
 
@@ -45,9 +46,11 @@ class Level:
         tm.move_cursor_to(x, y)
         # if there are any elements on a tile and they're not hidden we draw them instead of an actual tile
         if len(self.map[x][y].objects_on) > 0 and not self.map[x][y].objects_hidden:
-            print(self.map[x][y].objects_on[-1].tile_char, end='')
+            item = self.map[x][y].objects_on[-1]
+            tm.print_colored(item.tile_char, item.color)
         else:
-            print(self.map[x][y].tile_char, end='')
+            tile = self.map[x][y]
+            tm.print_colored(tile.tile_char, tile.color)
 
     def draw(self):
         tm.clear()
@@ -101,5 +104,5 @@ class Level:
         elif raw_tile == tile_set['chest']['standard_tile']:
             return tiles.Chest(x, y)
         else:
-            # Make a floor tile if a tile was no found
+            # Make a floor tile if a tile was not found
             return tiles.Floor(x, y)

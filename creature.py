@@ -18,6 +18,8 @@ class Creature(ABC):
         self.y_pos = y_pos
         self.level = level
         self.can_walk_on = False
+        self.color = 'white'
+        self.name_a = 'a creature'
 
     def move(self, x, y):
         try:
@@ -31,13 +33,14 @@ class Creature(ABC):
             pass
 
 
-class Enemy(Creature):
+class NPC(Creature):
     def __init__(self, x_position, y_position, name, level):
         super().__init__(name, x_position, y_position, level)
         self.inventory = Inventory(inv_col=self.level.get_size('width') + 1, height=self.level.get_size('height'))
         self.tile_char = 'z'
         self.id = 4
         self.name_a = 'a zombie'
+        self.color = 'l_green'
 
 
 class Hero(Creature):
