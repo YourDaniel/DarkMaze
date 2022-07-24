@@ -45,35 +45,33 @@ class GameState:
             self.log.add_msg('Try switching to ENG layout!')
             return False
 
-        # Moving
-        if key_pressed == 'w':
-            self.hero.move(self.hero.x_pos - 1, self.hero.y_pos)
-        elif key_pressed == 'a':
-            self.hero.move(self.hero.x_pos, self.hero.y_pos - 1)
-        elif key_pressed == 's':
-            self.hero.move(self.hero.x_pos + 1, self.hero.y_pos)
-        elif key_pressed == 'd':
-            self.hero.move(self.hero.x_pos, self.hero.y_pos + 1)
+        match key_pressed:
+            # Moving
+            case 'w':
+                self.hero.move(self.hero.x_pos - 1, self.hero.y_pos)
+            case 'a':
+                self.hero.move(self.hero.x_pos, self.hero.y_pos - 1)
+            case 's':
+                self.hero.move(self.hero.x_pos + 1, self.hero.y_pos)
+            case 'd':
+                self.hero.move(self.hero.x_pos, self.hero.y_pos + 1)
+            # Actions
+            case 'g':
+                self.hero.grab()
+            case 't':
+                self.hero.drop()
+            case 'l':
+                self.hero.look()
+            # Misc
+            case 'p':
+                self.log.add_msg(f'Hero position: ({self.hero.x_pos},{self.hero.y_pos})')
+            # Exit
+            case '\x1b':
+                self.log.add_msg('Exiting the game...')
+                return True
+            # Loop input
+            case _:
+                self.input_handler()
 
-        # Actions
-        elif key_pressed == 'g':
-            self.hero.grab()
-        elif key_pressed == 't':
-            self.hero.drop()
-        elif key_pressed == 'l':  # Look
-            self.hero.look()
-
-        # Misc
-        elif key_pressed == 'p':
-            self.log.add_msg(f'Hero position: ({self.hero.x_pos},{self.hero.y_pos})')
-
-        # Exit
-        elif key_pressed == '\x1b':
-            self.log.add_msg('Exiting the game...')
-            return True
-
-        # Loop input
-        else:
-            self.input_handler()
 
 # TODO: combine items placement and loading level to one logic
