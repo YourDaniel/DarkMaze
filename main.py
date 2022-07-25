@@ -14,7 +14,6 @@ G_STATE = GameState(level_file='levels/simple_box.txt')
 
 
 def main():
-    colorama.init()
     G_STATE.log.add_msg('WASD for movement, L - look, G - grab, T - drop, ESC - exit')
     G_STATE.log.add_msg('Welcome to Dark Maze!')
     G_STATE.tm.hide_cursor()
@@ -24,13 +23,8 @@ def main():
         if G_STATE.input_handler():
             break
         G_STATE.level.update_scr()
-
     G_STATE.tm.show_cursor()
-    colorama.deinit()
 
 
 if __name__ == '__main__':
     main()
-
-
-# TODO: Do not use colorama, remove all calls to it

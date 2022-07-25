@@ -1,3 +1,7 @@
+import functools
+functools.partial(print, flush=True)
+
+
 class TerminalManager:
     ESC_CHAR = '\x1b['  # \033
 

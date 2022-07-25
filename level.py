@@ -57,8 +57,7 @@ class Level:
         for i in range(len(self.map)):
             for j in range(len(self.map[i])):
                 self.draw_a_tile(i, j)
-            print()
-        #self.draw_ui()
+            print(flush=True)
 
     def update_scr(self):
         for char in self.upd_chars:
