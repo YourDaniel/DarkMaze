@@ -1,7 +1,6 @@
 import os
 import ctypes
 
-import colorama
 from gamestate import GameState
 
 

@@ -1,5 +1,5 @@
 import functools
-functools.partial(print, flush=True)
+print = functools.partial(print, flush=True)
 
 
 class TerminalManager:

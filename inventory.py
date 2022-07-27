@@ -1,7 +1,10 @@
+import functools
+
 from ansi_wraps import Color
 from ansi_wraps import TerminalManager
 from globals import DROP_KEYS
 
+print = functools.partial(print, flush=True)
 tm = TerminalManager()
 
 
