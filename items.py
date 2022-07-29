@@ -34,4 +34,8 @@ class Ace(ItemObject):
     description = 'A worn ace of spades playing card. It has a ripped corner.'
     tile_char = '♠'
 
+    def __init__(self):
+        super().__init__()
+        self.color = 'l_black'
+
 # TODO: implement IDs to distinguish different items

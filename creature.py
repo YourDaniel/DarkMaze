@@ -6,6 +6,7 @@ from log import Log
 from readchar import readkey
 from globals import DROP_KEYS
 from debug_log import debug
+from utils import lower_first_letter
 
 
 LOG = Log(log_line=12)
@@ -131,9 +132,10 @@ class Hero(Creature):
                 LOG.add_msg('Try switching to ENG layout')
 
     def look(self):
-        objects_below = self.level.get_object(self.x_pos, self.y_pos).objects_on
+        objects_below = [obj for obj in self.level.get_object(self.x_pos, self.y_pos).objects_on if obj != self]
         tile_below = self.level.get_object(self.x_pos, self.y_pos)
-        if len(objects_below) > 1:
-            LOG.add_msg(f'You see {objects_below[-2].description[:1].lower()}{objects_below[-2].description[1:]}')
+        if len(objects_below) > 0:
+            top_object = objects_below[-1]
+            LOG.add_msg(f'You see {lower_first_letter(top_object.description)}')
         else:
-            LOG.add_msg(f'You see {tile_below.description[:1].lower()}{tile_below.description[1:]}')
+            LOG.add_msg(f'You see {lower_first_letter(tile_below.description)}')
