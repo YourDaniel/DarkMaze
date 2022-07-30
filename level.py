@@ -1,7 +1,6 @@
 import tiles
 from tileset import tile_set
 from ansi_wraps import TerminalManager
-from debug_log import debug
 
 
 tm = TerminalManager()
