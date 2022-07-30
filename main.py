@@ -24,7 +24,9 @@ def main():
     while True:
         if G_STATE.input_handler():
             break
+        G_STATE.turn.make_turn()
         G_STATE.level.update_scr()
+
     G_STATE.tm.show_cursor()
 
 

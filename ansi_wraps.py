@@ -24,40 +24,41 @@ class TerminalManager:
         print(self.ESC_CHAR + '2J')
 
     def print_colored(self, string: str, color: str, end=''):
-        if color == 'black':
-            print(self.ESC_CHAR + '30m' + string, end='')
-        elif color == 'red':
-            print(self.ESC_CHAR + '31m' + string, end='')
-        elif color == 'green':
-            print(self.ESC_CHAR + '32m' + string, end='')
-        elif color == 'yellow':
-            print(self.ESC_CHAR + '33m' + string, end='')
-        elif color == 'blue':
-            print(self.ESC_CHAR + '34m' + string, end='')
-        elif color == 'magenta':
-            print(self.ESC_CHAR + '35m' + string, end='')
-        elif color == 'cyan':
-            print(self.ESC_CHAR + '36m' + string, end='')
-        elif color == 'white':
-            print(self.ESC_CHAR + '37m' + string, end='')
-        elif color == 'l_black':
-            print(self.ESC_CHAR + '30;1m' + string, end='')
-        elif color == 'l_red':
-            print(self.ESC_CHAR + '31;1m' + string, end='')
-        elif color == 'l_green':
-            print(self.ESC_CHAR + '32;1m' + string, end='')
-        elif color == 'l_yellow':
-            print(self.ESC_CHAR + '33;1m' + string, end='')
-        elif color == 'l_blue':
-            print(self.ESC_CHAR + '34;1m' + string, end='')
-        elif color == 'l_magenta':
-            print(self.ESC_CHAR + '35;1m' + string, end='')
-        elif color == 'l_cyan':
-            print(self.ESC_CHAR + '36;1m' + string, end='')
-        elif color == 'l_white':
-            print(self.ESC_CHAR + '37;1m' + string, end='')
-        else:
-            raise Exception(f'No such color in the palette: {color}')
+        match color:
+            case 'black':
+                print(self.ESC_CHAR + '30m' + string, end='')
+            case 'red':
+                print(self.ESC_CHAR + '31m' + string, end='')
+            case 'green':
+                print(self.ESC_CHAR + '32m' + string, end='')
+            case 'yellow':
+                print(self.ESC_CHAR + '33m' + string, end='')
+            case 'blue':
+                print(self.ESC_CHAR + '34m' + string, end='')
+            case 'magenta':
+                print(self.ESC_CHAR + '35m' + string, end='')
+            case 'cyan':
+                print(self.ESC_CHAR + '36m' + string, end='')
+            case 'white':
+                print(self.ESC_CHAR + '37m' + string, end='')
+            case 'l_black':
+                print(self.ESC_CHAR + '30;1m' + string, end='')
+            case 'l_red':
+                print(self.ESC_CHAR + '31;1m' + string, end='')
+            case 'l_green':
+                print(self.ESC_CHAR + '32;1m' + string, end='')
+            case 'l_yellow':
+                print(self.ESC_CHAR + '33;1m' + string, end='')
+            case 'l_blue':
+                print(self.ESC_CHAR + '34;1m' + string, end='')
+            case 'l_magenta':
+                print(self.ESC_CHAR + '35;1m' + string, end='')
+            case 'l_cyan':
+                print(self.ESC_CHAR + '36;1m' + string, end='')
+            case 'l_white':
+                print(self.ESC_CHAR + '37;1m' + string, end='')
+            case  _:
+                raise Exception(f'No such color in the palette: {color}')
         print(self.ESC_CHAR + '0m', end=end)
 
 

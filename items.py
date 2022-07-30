@@ -3,8 +3,9 @@ from tileset import tile_set
 
 class ItemObject:
     def __init__(self):
-        self.can_walk_on = True
         self.color = 'white'
+        self.can_walk_on = True
+        self.is_actor = False
 
 
 class Key(ItemObject):

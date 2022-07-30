@@ -1,6 +1,7 @@
 import tiles
 from tileset import tile_set
 from ansi_wraps import TerminalManager
+from debug_log import debug
 
 
 tm = TerminalManager()
@@ -31,8 +32,15 @@ class Level:
                 y = 0
                 line = []
 
-    def get_object(self, x, y):
+    def get_object(self, x, y):  # TODO: rename to get_tiles
         return self.map[x][y]
+
+    def get_objects(self):
+        objects = []
+        for x in range(self.get_size('height')):
+            for y in range(self.get_size('width')):
+                objects.append(self.get_object(x, y).objects_on)
+        return [obj for sublist in objects for obj in sublist]
 
     def get_size(self, dimension: str):
         if dimension == 'width':

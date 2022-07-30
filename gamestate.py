@@ -1,9 +1,10 @@
 from readchar import readkey
 
 from ansi_wraps import TerminalManager
-from items import Key, Diamond, Ace
-from log import Log
 from level import Level
+from log import Log
+from turns import TurnManager
+from items import Key, Diamond, Ace
 from creature import Hero, NPC
 
 
@@ -13,6 +14,7 @@ class GameState:
         self.level = Level()
         self.level.load(level_file)
         self.log = Log(log_line=self.level.get_size('height') + 1)  # TODO: make it property
+        self.turn = TurnManager(self.level)
         self.hero = Hero(2, 2, 'Daniel', self.level)
 
     def spawn_character(self, character):
@@ -20,9 +22,17 @@ class GameState:
 
     def test_simple_box(self):
         self.spawn_character(self.hero)
-        self.spawn_character(NPC(4, 4, 'Enemy', self.level))
+        # self.spawn_character(NPC(4, 4, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 10, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 11, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 12, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 13, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 14, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 15, 'Enemy', self.level))
+        self.spawn_character(NPC(1, 16, 'Enemy', self.level))
+
         self.level.name = 'Test level'
-        for _ in range(20):
+        for _ in range(10):
             self.level.place_object(Key(), 2, 3)
         self.level.place_object(Key(), 2, 4)
         self.level.place_object(Diamond(), 2, 17)

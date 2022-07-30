@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import random
 
 from inventory import Inventory, InventoryIsFullException
 from items import Key
@@ -10,6 +11,8 @@ from utils import lower_first_letter
 
 
 LOG = Log(log_line=12)
+# TODO: make base class for items, creatures and tiles
+# TODO: move hero functions to base creature class
 
 
 class Creature(ABC):
@@ -19,6 +22,7 @@ class Creature(ABC):
         self.y_pos = y_pos
         self.level = level
         self.can_walk_on = False
+        self.is_actor = True
         self.color = 'white'
         self.name_a = 'a creature'
 
@@ -43,6 +47,11 @@ class NPC(Creature):
         self.name_a = 'a zombie'
         self.color = 'l_green'
 
+    def choose_action(self):
+        x = random.randint(-1, 1)
+        y = random.randint(-1, 1)
+        return self.move, (self.x_pos + x, self.y_pos + y)
+
 
 class Hero(Creature):
     id = 0
@@ -50,6 +59,7 @@ class Hero(Creature):
 
     def __init__(self, x_position, y_position, name, level):
         super().__init__(name, x_position, y_position, level)
+        self.is_actor = False
         self.inventory = Inventory(
             inv_col=self.level.get_size('width') + 1,
             height=self.level.get_size('height'),
@@ -67,9 +77,9 @@ class Hero(Creature):
                 try:
                     self.open(x, y)
                 except AttributeError:
-                    LOG.add_msg("You can't move here attr.")
+                    LOG.add_msg("You can't move here.")
         except IndexError:
-            LOG.add_msg("You can't move here index.")
+            LOG.add_msg("You can't move here.")
 
     def open(self, x, y):
         obj_to_open = self.level.get_object(x, y)
