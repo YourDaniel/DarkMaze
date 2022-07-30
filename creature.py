@@ -6,7 +6,6 @@ from items import Key
 from log import Log
 from readchar import readkey
 from globals import DROP_KEYS
-from debug_log import debug
 from utils import lower_first_letter
 
 
