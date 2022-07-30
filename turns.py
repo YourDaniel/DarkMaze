@@ -23,3 +23,5 @@ class TurnManager:
         self._collect_actions()
         self._execute_queue()
         self.action_queue = []
+
+#  TODO: make wrong inputs by player not count as a turn

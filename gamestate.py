@@ -73,7 +73,11 @@ class GameState:
             case 'l':
                 self.hero.look()
             case 'c':
-                self.hero.close()
+                x, y = self.hero.choose_direction('close')
+                self.hero.close(x, y)
+            case 'o':
+                x, y = self.hero.choose_direction('open')
+                self.hero.open(x, y)
             # Misc
             case 'z':
                 self.log.add_msg(f'Hero position: ({self.hero.x_pos},{self.hero.y_pos})')

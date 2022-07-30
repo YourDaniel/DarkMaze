@@ -84,12 +84,16 @@ class Hero(Creature):
     def open(self, x, y):
         obj_to_open = self.level.get_object(x, y)
 
-        self.level.upd_chars.append((x, y))
-        self.level.upd_chars.append((self.x_pos, self.y_pos))
+        if not hasattr(obj_to_open, 'is_closed'):
+            LOG.add_msg(f"You can't open {obj_to_open.name_a}.")
+            return False
 
         if not obj_to_open.is_closed:
             LOG.add_msg(f'{obj_to_open.name} is already open.')
             return False
+
+        self.level.upd_chars.append((x, y))
+        self.level.upd_chars.append((self.x_pos, self.y_pos))
 
         if obj_to_open.requires_key:
             if self.inventory.item_inside(Key):
@@ -105,36 +109,38 @@ class Hero(Creature):
             LOG.add_msg(f'You opened {obj_to_open.name_a}.')
             return True
 
-    def close(self):
-        LOG.add_msg('Close where (WASD)? Press C to cancel.')
+    def choose_direction(self, action_verb: str):
+        LOG.add_msg(f'Where to {action_verb}? ')
+        key_pressed = readkey()
         while True:
-            key_pressed = readkey()
             match key_pressed:
                 case 'w':
                     x, y = self.x_pos - 1, self.y_pos
-                    break
+                    return x, y
                 case 'a':
                     x, y = self.x_pos, self.y_pos - 1
-                    break
+                    return x, y
                 case 's':
                     x, y = self.x_pos + 1, self.y_pos
-                    break
+                    return x, y
                 case 'd':
                     x, y = self.x_pos, self.y_pos + 1
-                    break
+                    return x, y
                 case 'c':
-                    LOG.add_msg('You changed your mind on closing something.')
-                    return False
+                    LOG.add_msg('You changed your mind.')
+                    return None
                 case _:
-                    LOG.add_msg('Use WASD keys to choose a direction to close.')
+                    LOG.add_msg(f'Use WASD keys to choose a direction to {action_verb}. Press C to cancel.')
+
+    def close(self, x, y):
         self.level.upd_chars.append((x, y))
-        object_to_open = self.level.get_object(x, y)
-        if hasattr(object_to_open, 'is_closed'):
-            if not object_to_open.is_closed:
-                object_to_open.close()
-                LOG.add_msg(f'You closed {object_to_open.name_a}.')
+        obj_to_close = self.level.get_object(x, y)
+        if hasattr(obj_to_close, 'is_closed'):
+            if not obj_to_close.is_closed:
+                obj_to_close.close()
+                LOG.add_msg(f'You closed {obj_to_close.name_a}.')
             else:
-                LOG.add_msg(f'{object_to_open.name} is already closed.')
+                LOG.add_msg(f'{obj_to_close.name} is already closed.')
         else:
             LOG.add_msg('Nothing to close here.')
 
