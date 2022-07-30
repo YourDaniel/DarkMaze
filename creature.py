@@ -67,23 +67,66 @@ class Hero(Creature):
                 try:
                     self.open(x, y)
                 except AttributeError:
-                    LOG.add_msg("You can't move here.")
+                    LOG.add_msg("You can't move here attr.")
         except IndexError:
-            LOG.add_msg("You can't move here.")
+            LOG.add_msg("You can't move here index.")
 
     def open(self, x, y):
-        obj_name = self.level.get_object(x, y).name_a
-        if self.level.get_object(x, y).is_closed:
+        obj_to_open = self.level.get_object(x, y)
+
+        self.level.upd_chars.append((x, y))
+        self.level.upd_chars.append((self.x_pos, self.y_pos))
+
+        if not obj_to_open.is_closed:
+            LOG.add_msg(f'{obj_to_open.name} is already open.')
+            return False
+
+        if obj_to_open.requires_key:
             if self.inventory.item_inside(Key):
-                self.level.upd_chars.append((x, y))
-                self.level.upd_chars.append((self.x_pos, self.y_pos))
-                self.level.get_object(x, y).open()
                 self.inventory.remove_item(Key.id)
-                LOG.add_msg(f'You opened {obj_name}.')
+                obj_to_open.open()
+                LOG.add_msg(f'You opened {obj_to_open.name_a}.')
+                return True
             else:
-                LOG.add_msg(f'You need to find a key to open {obj_name}.')
+                LOG.add_msg(f'You need to find a key to open {obj_to_open.name_a}.')
+                return False
         else:
-            LOG.add_msg(f"You can't open {obj_name}.")
+            obj_to_open.open()
+            LOG.add_msg(f'You opened {obj_to_open.name_a}.')
+            return True
+
+    def close(self):
+        LOG.add_msg('Close where (WASD)? Press C to cancel.')
+        while True:
+            key_pressed = readkey()
+            match key_pressed:
+                case 'w':
+                    x, y = self.x_pos - 1, self.y_pos
+                    break
+                case 'a':
+                    x, y = self.x_pos, self.y_pos - 1
+                    break
+                case 's':
+                    x, y = self.x_pos + 1, self.y_pos
+                    break
+                case 'd':
+                    x, y = self.x_pos, self.y_pos + 1
+                    break
+                case 'c':
+                    LOG.add_msg('You changed your mind on closing something.')
+                    return False
+                case _:
+                    LOG.add_msg('Use WASD keys to choose a direction to close.')
+        self.level.upd_chars.append((x, y))
+        object_to_open = self.level.get_object(x, y)
+        if hasattr(object_to_open, 'is_closed'):
+            if not object_to_open.is_closed:
+                object_to_open.close()
+                LOG.add_msg(f'You closed {object_to_open.name_a}.')
+            else:
+                LOG.add_msg(f'{object_to_open.name} is already closed.')
+        else:
+            LOG.add_msg('Nothing to close here.')
 
     def grab(self):
         objects_below = self.level.get_object(self.x_pos, self.y_pos).objects_on
@@ -109,7 +152,7 @@ class Hero(Creature):
         if len(self.inventory.content) == 0:
             LOG.add_msg('You have no items in your backpack.')
             return False
-        LOG.add_msg('Select an item to drop. Press C to cancel')
+        LOG.add_msg('Select an item to drop. Press C to cancel.')
         while True:
             try:
                 key_pressed = readkey()
@@ -133,9 +176,9 @@ class Hero(Creature):
 
     def look(self):
         objects_below = [obj for obj in self.level.get_object(self.x_pos, self.y_pos).objects_on if obj != self]
-        tile_below = self.level.get_object(self.x_pos, self.y_pos)
         if len(objects_below) > 0:
             top_object = objects_below[-1]
             LOG.add_msg(f'You see {lower_first_letter(top_object.description)}')
         else:
+            tile_below = self.level.get_object(self.x_pos, self.y_pos)
             LOG.add_msg(f'You see {lower_first_letter(tile_below.description)}')

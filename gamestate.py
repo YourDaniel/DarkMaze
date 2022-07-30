@@ -58,12 +58,14 @@ class GameState:
             # Actions
             case 'g':
                 self.hero.grab()
-            case 't':
+            case 'p':
                 self.hero.drop()
             case 'l':
                 self.hero.look()
+            case 'c':
+                self.hero.close()
             # Misc
-            case 'p':
+            case 'z':
                 self.log.add_msg(f'Hero position: ({self.hero.x_pos},{self.hero.y_pos})')
             # Exit
             case '\x1b':

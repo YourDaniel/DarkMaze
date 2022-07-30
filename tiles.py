@@ -1,4 +1,5 @@
 from tileset import tile_set
+from random import choices
 
 
 #  TODO: Add tiles variety
@@ -24,21 +25,23 @@ class Wall(TileObject):
     bottom_tile_char = tile_set['floor']['custom_tile']
 
     def __init__(self, x, y):
+        super(Wall, self).__init__(x, y)
         self.destroyable = True
         self.can_walk_on = False
         self.obtainable = False
         self.description = 'A rough stone wall. It is dark and cold.'
-        super(Wall, self).__init__(x, y)
+        self.color = 'l_black'
 
 
 class Floor(TileObject):
     name = 'Floor'
     name_a = 'the floor'
-    tile_char = tile_set['floor']['custom_tile']
+    # tile_char = tile_set['floor']['custom_tile']
     bottom_tile_char = tile_set['floor']['custom_tile']
 
     def __init__(self, x, y):
         super().__init__(x, y)
+        self.tile_char = choices(['.', ' ', "`", ','], weights=[5, 85, 5, 5], k=1)[0]
         self.destroyable = False
         self.can_walk_on = True
         self.obtainable = False
@@ -62,6 +65,7 @@ class Door(TileObject):
         self.destroyable = True
         self.can_walk_on = False
         self.obtainable = False
+        self.requires_key = True
         self.description = 'An old wooden door with rusty handle and a keyhole.'
         super(Door, self).__init__(x, y)
 
@@ -69,6 +73,7 @@ class Door(TileObject):
         self.is_closed = False
         self.can_walk_on = True
         self.tile_char = self.bottom_tile_char
+        self.requires_key = False
 
     def close(self):
         self.is_closed = True
@@ -97,20 +102,22 @@ class Chest(TileObject):
     bottom_tile_char = '∟'
 
     def __init__(self, x, y):
+        super(Chest, self).__init__(x, y)
         self.destroyable = True
         self.can_walk_on = False
         self.obtainable = False
         self.is_closed = True
+        self.objects_hidden = True
+        self.requires_key = True
         self.description = 'A crude chest with iron frame. It has a keyhole.'
         self.closed_tile_char = self.tile_char
-        super(Chest, self).__init__(x, y)
-        self.objects_hidden = True
 
     def open(self):
         self.is_closed = False
         self.can_walk_on = True
         self.tile_char = self.bottom_tile_char
         self.objects_hidden = False
+        self.requires_key = False
 
     def close(self):
         self.is_closed = True

@@ -13,7 +13,10 @@ G_STATE = GameState(level_file='levels/simple_box.txt')
 
 
 def main():
-    G_STATE.log.add_msg('WASD for movement, L - look, G - grab, T - drop, ESC - exit')
+    G_STATE.log.add_msg('~ Misc: ESC - exit, z - get Hero coords')
+    G_STATE.log.add_msg('~ Actions: (l)ook, (g)rab, dro(p), (c)lose')
+    G_STATE.log.add_msg('~ Movement: wasd')
+    G_STATE.log.add_msg('-- Controls --')
     G_STATE.log.add_msg('Welcome to Dark Maze!')
     G_STATE.tm.hide_cursor()
     G_STATE.test_simple_box()
