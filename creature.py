@@ -109,7 +109,7 @@ class Hero(Creature):
             return True
 
     def choose_direction(self, action_verb: str):
-        LOG.add_msg(f'Where to {action_verb}? ')
+        LOG.add_msg(f'Where to {action_verb}?')
         key_pressed = readkey()
         while True:
             match key_pressed:
@@ -130,6 +130,8 @@ class Hero(Creature):
                     return None
                 case _:
                     LOG.add_msg(f'Use WASD keys to choose a direction to {action_verb}. Press C to cancel.')
+                    break
+        self.choose_direction(action_verb)
 
     def close(self, x, y):
         self.level.upd_chars.append((x, y))
