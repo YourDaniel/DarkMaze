@@ -110,7 +110,11 @@ class Hero(Creature):
 
     def choose_direction(self, action_verb: str):
         LOG.add_msg(f'Where to {action_verb}?')
-        key_pressed = readkey()
+        try:
+            key_pressed = readkey()
+        except UnicodeDecodeError:
+            LOG.add_msg('Try switching to ENG layout!')
+            return False
         while True:
             match key_pressed:
                 case 'w':
