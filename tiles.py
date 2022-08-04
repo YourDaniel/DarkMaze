@@ -30,7 +30,6 @@ class Wall(TileObject):
         self.can_walk_on = False
         self.obtainable = False
         self.description = 'A rough stone wall. It is dark and cold.'
-        self.color = 'l_black'
 
 
 class Floor(TileObject):
@@ -52,7 +51,7 @@ class Floor(TileObject):
 class Door(TileObject):
     name = 'Door'
     name_a = 'the door'
-    bottom_tile_char = "'"
+    bottom_tile_char = "."
 
     def __init__(self, x, y, align):
         # TODO: Rework aligning. Automatically choose tile or use the same tile for all doors?
