@@ -5,33 +5,30 @@ from level import Level
 from log import Log
 from turns import TurnManager
 from items import Key, Diamond, Ace
-from creature import Hero, NPC
+from creature import Hero, Zombie
 
 
 class GameState:
     def __init__(self, level_file):
         self.tm = TerminalManager()
         self.level = Level()
-        self.level.load(level_file)
+        self.level.load(level_file, 'Test level')
         self.log = Log(log_line=self.level.get_size('height') + 1)  # TODO: make it property
         self.turn = TurnManager(self.level)
-        self.hero = Hero(2, 2, 'Daniel', self.level)
+        self.hero = Hero('Daniel', 2, 2, self.level)
 
     def spawn_character(self, character):
         self.level.place_object(character, character.x_pos, character.y_pos)
 
     def test_simple_box(self):
         self.spawn_character(self.hero)
-        # self.spawn_character(NPC(4, 4, 'Enemy', self.level))
-        self.spawn_character(NPC(1, 10, 'Enemy', self.level))
-        self.spawn_character(NPC(2, 11, 'Enemy', self.level))
-        self.spawn_character(NPC(1, 12, 'Enemy', self.level))
-        self.spawn_character(NPC(2, 13, 'Enemy', self.level))
-        self.spawn_character(NPC(1, 14, 'Enemy', self.level))
-        self.spawn_character(NPC(2, 15, 'Enemy', self.level))
-        self.spawn_character(NPC(1, 16, 'Enemy', self.level))
-
-        self.level.name = 'Test level'
+        self.spawn_character(Zombie('Enemy', 1, 10, self.level))
+        self.spawn_character(Zombie('Enemy', 2, 11, self.level))
+        self.spawn_character(Zombie('Enemy', 1, 12, self.level))
+        self.spawn_character(Zombie('Enemy', 2, 13, self.level))
+        self.spawn_character(Zombie('Enemy', 1, 14, self.level))
+        self.spawn_character(Zombie('Enemy', 2, 15, self.level))
+        self.spawn_character(Zombie('Enemy', 1, 16, self.level))
         # for _ in range(10):
         #     self.level.place_object(Key(), 2, 3)
         self.level.place_object(Key(), 2, 4)
@@ -42,11 +39,12 @@ class GameState:
         # self.level.place_object(Ace(), 2, 12)
         self.level.draw()
         self.hero.inventory.draw()
+        self.log.draw()
         self.draw_ui()
 
     def draw_ui(self):
         self.tm.move_cursor_to(self.level.get_size('height'), 0)
-        self.tm.print_colored('HP †: ♥♥♥', 'red', end=' ')
+        self.tm.print_colored(f'HP: {self.hero.hp}/{self.hero.max_hp}', 'red', end=' ')
         self.tm.print_colored('COINS: ☼☼☼', 'yellow', end=' ')
         self.tm.print_colored(f'LEVEL: {self.level.name}', 'l_black')
 

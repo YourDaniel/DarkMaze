@@ -24,6 +24,8 @@ class Creature(ABC):
         self.is_actor = True
         self.color = 'white'
         self.name_a = 'a creature'
+        self.hp = 10
+        self.attack = 1
 
     def move(self, x, y):
         try:
@@ -38,13 +40,11 @@ class Creature(ABC):
 
 
 class NPC(Creature):
-    def __init__(self, x_position, y_position, name, level):
+    def __init__(self, name, x_position, y_position, level):
         super().__init__(name, x_position, y_position, level)
         self.inventory = Inventory(inv_col=self.level.get_size('width') + 1, height=self.level.get_size('height'))
-        self.tile_char = 'z'
+        self.name_a = 'a' + name.lower()
         self.id = 4
-        self.name_a = 'a zombie'
-        self.color = 'l_green'
 
     def choose_action(self):
         x = random.randint(-1, 1)
@@ -52,17 +52,49 @@ class NPC(Creature):
         return self.move, (self.x_pos + x, self.y_pos + y)
 
 
+class Zombie(NPC):
+    def __init__(self, name, x_position, y_position, level):
+        super().__init__(name, x_position, y_position, level)
+        self.tile_char = 'z'
+        self.color = 'l_green'
+        self.hostile = True
+
+    def choose_action(self):
+        return self.move, self.chase_hero()
+
+    def chase_hero(self):
+        hero_x, hero_y = self.find_hero()
+        delta_x = 0
+        delta_y = 0
+        if self.x_pos > hero_x:
+            delta_x -= 1
+        elif self.x_pos < hero_x:
+            delta_x += 1
+        if self.y_pos > hero_y:
+            delta_y -= 1
+        elif self.y_pos < hero_y:
+            delta_y += 1
+        return self.x_pos + delta_x, self.y_pos + delta_y
+
+    def find_hero(self):
+        for obj in self.level.get_objects():
+            if obj.id == 0:
+                return obj.x_pos, obj.y_pos
+
+
 class Hero(Creature):
     id = 0
     tile_char = '☻'
 
-    def __init__(self, x_position, y_position, name, level):
+    def __init__(self, name, x_position, y_position, level):
         super().__init__(name, x_position, y_position, level)
         self.is_actor = False
         self.inventory = Inventory(
             inv_col=self.level.get_size('width') + 1,
             height=self.level.get_size('height'),
             visible=True)
+        self.max_hp = 10
+        self.hp = 10
 
     def move(self, x, y):
         try:
@@ -108,7 +140,19 @@ class Hero(Creature):
             LOG.add_msg(f'You opened {obj_to_open.name_a}.')
             return True
 
-    def choose_direction(self, action_verb: str):
+    def close(self, x, y):
+        self.level.upd_chars.append((x, y))
+        obj_to_close = self.level.get_object(x, y)
+        if hasattr(obj_to_close, 'is_closed'):
+            if not obj_to_close.is_closed:
+                obj_to_close.close()
+                LOG.add_msg(f'You closed {obj_to_close.name_a}.')
+            else:
+                LOG.add_msg(f'{obj_to_close.name} is already closed.')
+        else:
+            LOG.add_msg('Nothing to close here.')
+
+    def choose_direction(self, action_verb: str):  # TODO: move it to input_handler
         LOG.add_msg(f'Where to {action_verb}?')
         try:
             key_pressed = readkey()
@@ -136,18 +180,6 @@ class Hero(Creature):
                     LOG.add_msg(f'Use WASD keys to choose a direction to {action_verb}. Press C to cancel.')
                     break
         self.choose_direction(action_verb)
-
-    def close(self, x, y):
-        self.level.upd_chars.append((x, y))
-        obj_to_close = self.level.get_object(x, y)
-        if hasattr(obj_to_close, 'is_closed'):
-            if not obj_to_close.is_closed:
-                obj_to_close.close()
-                LOG.add_msg(f'You closed {obj_to_close.name_a}.')
-            else:
-                LOG.add_msg(f'{obj_to_close.name} is already closed.')
-        else:
-            LOG.add_msg('Nothing to close here.')
 
     def grab(self):
         objects_below = self.level.get_object(self.x_pos, self.y_pos).objects_on
