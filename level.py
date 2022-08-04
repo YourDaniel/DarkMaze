@@ -9,12 +9,12 @@ tm = TerminalManager()
 class Level:
     map = []
     upd_chars = []
-    name = ''
 
     def __init__(self):
-        pass
+        self.name = ''
 
-    def load(self, file_name):
+    def load(self, file_name, name):
+        self.name = name
         self.map = []
         with open(file_name, encoding='UTF-8-sig') as f:
             data = f.read()
@@ -42,12 +42,13 @@ class Level:
         return [obj for sublist in objects for obj in sublist]
 
     def get_size(self, dimension: str):
-        if dimension == 'width':
-            return len(self.map[0])
-        elif dimension == 'height':
-            return len(self.map)
-        else:
-            raise Exception('Dimension must be "height" or "width"')
+        match dimension:
+            case 'width':
+                return len(self.map[0])
+            case 'height':
+                return len(self.map)
+            case _:
+                raise Exception('Dimension must be "height" or "width"')
 
     def draw_a_tile(self, x, y):
         tm.move_cursor_to(x, y)
