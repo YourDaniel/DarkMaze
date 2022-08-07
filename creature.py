@@ -113,7 +113,7 @@ class Hero(Creature):
             LOG.add_msg("You can't move here.")
 
     def open(self, x, y):
-        obj_to_open = self.level.get_object(x, y)
+        obj_to_open = self.level.get_tile(x, y)
 
         if not hasattr(obj_to_open, 'is_closed'):
             LOG.add_msg(f"You can't open {obj_to_open.name_a}.")
@@ -142,7 +142,7 @@ class Hero(Creature):
 
     def close(self, x, y):
         self.level.upd_chars.append((x, y))
-        obj_to_close = self.level.get_object(x, y)
+        obj_to_close = self.level.get_tile(x, y)
         if hasattr(obj_to_close, 'is_closed'):
             if not obj_to_close.is_closed:
                 obj_to_close.close()
@@ -182,8 +182,8 @@ class Hero(Creature):
         self.choose_direction(action_verb)
 
     def grab(self):
-        objects_below = self.level.get_object(self.x_pos, self.y_pos).objects_on
-        tile_name = self.level.get_object(self.x_pos, self.y_pos).name_a
+        objects_below = self.level.get_tile(self.x_pos, self.y_pos).objects_on
+        tile_name = self.level.get_tile(self.x_pos, self.y_pos).name_a
         for i in range(len(objects_below)-1, -1, -1):
             # Check if picked item is not a Hero since he has id = 0
             # TODO: Fix this dirty hack
@@ -228,10 +228,10 @@ class Hero(Creature):
                 LOG.add_msg('Try switching to ENG layout')
 
     def look(self):
-        objects_below = [obj for obj in self.level.get_object(self.x_pos, self.y_pos).objects_on if obj != self]
+        objects_below = [obj for obj in self.level.get_tile(self.x_pos, self.y_pos).objects_on if obj != self]
         if len(objects_below) > 0:
             top_object = objects_below[-1]
             LOG.add_msg(f'You see {lower_first_letter(top_object.description)}')
         else:
-            tile_below = self.level.get_object(self.x_pos, self.y_pos)
+            tile_below = self.level.get_tile(self.x_pos, self.y_pos)
             LOG.add_msg(f'You see {lower_first_letter(tile_below.description)}')

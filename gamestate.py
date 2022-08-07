@@ -1,6 +1,6 @@
 from readchar import readkey
 
-from ansi_wraps import TerminalManager
+from terminal_manager import TerminalManager
 from level import Level
 from log import Log
 from turns import TurnManager
@@ -22,9 +22,6 @@ class GameState:
 
     def test_simple_box(self):
         self.spawn_character(self.hero)
-        self.spawn_character(Zombie('Enemy', 1, 10, self.level))
-        self.spawn_character(Zombie('Enemy', 2, 11, self.level))
-        self.spawn_character(Zombie('Enemy', 1, 12, self.level))
         self.spawn_character(Zombie('Enemy', 2, 13, self.level))
         self.spawn_character(Zombie('Enemy', 1, 14, self.level))
         self.spawn_character(Zombie('Enemy', 2, 15, self.level))
