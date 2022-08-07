@@ -12,7 +12,7 @@ tile_set = {
     'door_h':
         dict(standard_tile='═', custom_tile='═', name='Horizontal Door Tile'),
     'chest':
-        dict(standard_tile='■', custom_tile='■', name='Chest Tile'),
+        dict(standard_tile='■', custom_tile='ם', name='Chest Tile'),
     'hero':
         dict(standard_tile='@', custom_tile='@', name='The Character'),
     'key':

@@ -110,6 +110,7 @@ class Chest(TileObject):
         self.requires_key = True
         self.description = 'A crude chest with iron frame. It has a keyhole.'
         self.closed_tile_char = self.tile_char
+        self.color = 'yellow'
 
     def open(self):
         self.is_closed = False
