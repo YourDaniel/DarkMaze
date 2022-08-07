@@ -1,6 +1,6 @@
 import tiles
 from tileset import tile_set
-from ansi_wraps import TerminalManager
+from terminal_manager import TerminalManager
 
 
 tm = TerminalManager()
@@ -31,20 +31,21 @@ class Level:
                 y = 0
                 line = []
 
-    def get_object(self, x, y):  # TODO: rename to get_tiles
+    def get_tile(self, x, y):
         return self.map[x][y]
 
     def get_objects(self):
         objects = []
         for x in range(self.get_size('height')):
             for y in range(self.get_size('width')):
-                objects.append(self.get_object(x, y).objects_on)
+                objects.append(self.get_tile(x, y).objects_on)
         return [obj for sublist in objects for obj in sublist]
 
     def get_size(self, dimension: str):
         match dimension:
             case 'width':
-                return len(self.map[0])
+                lengths = [len(line) for line in self.map]
+                return max(lengths)
             case 'height':
                 return len(self.map)
             case _:
@@ -52,11 +53,15 @@ class Level:
 
     def draw_a_tile(self, x, y):
         tm.move_cursor_to(x, y)
-        # if there are any elements on a tile and they're not hidden we draw them instead of an actual tile
+        # if there are any elements on a tile, and they're not hidden we draw them instead of an actual tile
         if len(self.map[x][y].objects_on) > 0 and not self.map[x][y].objects_hidden:
             obj_to_draw = self.map[x][y].objects_on[-1]
         else:
             obj_to_draw = self.map[x][y]
+        # Draw background
+        if hasattr(obj_to_draw, 'color_back'):
+            tm.set_background(obj_to_draw.color_back)
+
         if isinstance(obj_to_draw.color, list):
             tm.print_colored(obj_to_draw.tile_char, obj_to_draw.color[0])
         else:

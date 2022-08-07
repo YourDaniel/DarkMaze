@@ -1,5 +1,5 @@
 from datetime import datetime
-from ansi_wraps import TerminalManager, Color
+from terminal_manager import TerminalManager, Color
 
 tm = TerminalManager()
 
