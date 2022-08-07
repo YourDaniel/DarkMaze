@@ -54,11 +54,13 @@ class Level:
         tm.move_cursor_to(x, y)
         # if there are any elements on a tile and they're not hidden we draw them instead of an actual tile
         if len(self.map[x][y].objects_on) > 0 and not self.map[x][y].objects_hidden:
-            item = self.map[x][y].objects_on[-1]
-            tm.print_colored(item.tile_char, item.color)
+            obj_to_draw = self.map[x][y].objects_on[-1]
         else:
-            tile = self.map[x][y]
-            tm.print_colored(tile.tile_char, tile.color)
+            obj_to_draw = self.map[x][y]
+        if isinstance(obj_to_draw.color, list):
+            tm.print_colored(obj_to_draw.tile_char, obj_to_draw.color[0])
+        else:
+            tm.print_colored(obj_to_draw.tile_char, obj_to_draw.color)
 
     def draw(self):
         tm.clear()
@@ -66,6 +68,10 @@ class Level:
             for j in range(len(self.map[i])):
                 self.draw_a_tile(i, j)
             print(flush=True)
+
+    def blink(self):
+        blinks = [obj for obj in self.get_objects() if isinstance(obj.color, list)]
+        self.upd_chars.append([(obj.x, obj.y) for obj in blinks])
 
     def update_scr(self):
         for char in self.upd_chars:

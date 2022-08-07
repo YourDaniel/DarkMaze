@@ -4,7 +4,7 @@ from ansi_wraps import TerminalManager
 from level import Level
 from log import Log
 from turns import TurnManager
-from items import Key, Diamond, Ace
+from items import Key, Diamond, Ace, Jera
 from creature import Hero, Zombie
 
 
@@ -32,6 +32,7 @@ class GameState:
         # for _ in range(10):
         #     self.level.place_object(Key(), 2, 3)
         self.level.place_object(Key(), 2, 4)
+        self.level.place_object(Jera(), 4, 5)
         self.level.place_object(Key(), 8, 6)
         self.level.place_object(Key(), 9, 5)
         self.level.place_object(Diamond(), 2, 17)

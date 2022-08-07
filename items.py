@@ -39,4 +39,18 @@ class Ace(ItemObject):
         super().__init__()
         self.color = 'l_black'
 
+
+class Jera(ItemObject):
+    id = 4
+    name = 'Rune of Jera'
+    name_a = 'the rune of Jera'
+    description = 'An ancient rune of Jera. It glows with bright blue light and is cold to touch.'
+    tile_char = 'ᛃ'
+
+    def __init__(self):
+        super().__init__()
+        self.color = ['l_blue', 'blue']
+        # self.color_blink = 'b_blue'
+
+
 # TODO: implement IDs to distinguish different items
